@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Style/Main.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav>
+        <a asp-action="Index" asp-controller="Home">Home</a>&emsp;
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>Footer</footer>
+</body>
+</html>
