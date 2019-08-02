@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_blogLayout.cshtml";
+}
+
+<h2>Blog Page</h2>
+
+<div>
+    Pinned Blog
+    <!--<partial name="_BlogPostPartial" model="/r@bpost" />-->
+</div>
+
+<div>
+    Blog Posts (partials)
+    foreach(Blog bpost in blogPosts){
+        <!--<partial name="_BlogPostPartial" model="/r@bpost" />-->
+    }
+</div>
+
+<div>
+    Twitter API (if Included)
+
+</div>
