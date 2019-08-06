@@ -11,11 +11,11 @@ namespace SquidSite.Models
         [Flags]
         public enum eBlogTag
         {
-            NONE = 1 << 0,
-            UPDATE = 1 << 1,
+            NONE        = 1 << 0,
+            UPDATE      = 1 << 1,
             ANOUNCEMENT = 1 << 2,
-            DEVBLOG = 1 << 3,
-            PINNED = 1 << 4,
+            DEVBLOG     = 1 << 3,
+            PINNED      = 1 << 4,
         }
 
         public string title;
