@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace SquidSite.Models
 {
-    public abstract class Product
+    public class Game : Product
     {
-        //put product info here
+        // game stuff here
     }
 }

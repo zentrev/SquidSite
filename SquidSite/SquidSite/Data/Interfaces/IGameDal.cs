@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SquidSite.Models;
 
-namespace SquidSite.Models
+namespace SquidSite.Data.Interfaces
 {
-    public abstract class Product
+    interface IGameDal : IProductDal
     {
-        //put product info here
     }
 }
