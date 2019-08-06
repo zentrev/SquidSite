@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+﻿
+@{
+    ViewData["Title"] = "_blogLayout";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h2>_blogLayout</h2>
+<div>
+    @RenderBody()
+=======
+﻿
+@{
+    ViewData["Title"] = "_blogLayout";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+<h2>_blogLayout</h2>
+<div>
+    @RenderBody()
+>>>>>>> e5b0d0a50013d9efcd59607c6b5e6b7736109786
+</div>
