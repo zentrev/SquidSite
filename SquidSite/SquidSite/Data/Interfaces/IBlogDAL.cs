@@ -16,10 +16,10 @@ namespace SquidSite.Database.Interfaces
         IEnumerable<BlogPost> Filter(BlogPost.eBlogTag tag);
 
         bool AddBlog(BlogPost blog);
-        bool DeleteBlog(int index);
+        bool DeleteBlog(int Key);
         bool DeleteBlog(BlogPost blog);
-        bool EditBlog(int index, BlogPost blog);
-        BlogPost GetBlog(int index);
-        int GetIndex(BlogPost blog);
+        bool EditBlog(int Key, BlogPost blog);
+        BlogPost GetBlog(int Key);
+        int GetKey(BlogPost blog);
     }
 }

@@ -22,9 +22,9 @@ namespace SquidSite.Data.Database
             return true;
         }
 
-        public bool DeleteBlog(int index)
+        public bool DeleteBlog(int Key)
         {
-            mockDB.RemoveAt(index);
+            mockDB.RemoveAt(Key);
             return true;
         }
 
@@ -34,9 +34,9 @@ namespace SquidSite.Data.Database
             return true;
         }
 
-        public bool EditBlog(int index, BlogPost blog)
+        public bool EditBlog(int Key, BlogPost blog)
         {
-            mockDB[index] = blog;
+            mockDB[Key] = blog;
             return true;
         }
 
@@ -50,12 +50,12 @@ namespace SquidSite.Data.Database
             return mockDB;
         }
 
-        public BlogPost GetBlog(int index)
+        public BlogPost GetBlog(int Key)
         {
-            return mockDB[index];
+            return mockDB[Key];
         }
 
-        public int GetIndex(BlogPost blog)
+        public int GetKey(BlogPost blog)
         {
             for(int i = 0; i < mockDB.Count; i++)
             {
