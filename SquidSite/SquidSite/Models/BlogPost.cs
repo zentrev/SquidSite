@@ -25,7 +25,7 @@ namespace SquidSite.Models
         public DateTime dateEdited;
         public string content;
         public eBlogTag tag;
-        public List<Comment> comments;
+        public List<Comment> comments = new List<Comment>();
 
         public struct Comment
         {
