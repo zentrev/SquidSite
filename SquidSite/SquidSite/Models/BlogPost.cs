@@ -25,5 +25,21 @@ namespace SquidSite.Models
         public DateTime dateEdited;
         public string content;
         public eBlogTag tag;
+        public List<Comment> comments;
+
+        public struct Comment
+        {
+            public string posterUserName;
+            public string posterUserIcon;
+            public DateTime dateEdited;
+            public string content;
+            public Comment(string _posterUserName, string _posterUserIcon, DateTime _dateEdited, string _content)
+            {
+                posterUserName = _posterUserName;
+                posterUserIcon = _posterUserIcon;
+                dateEdited = _dateEdited;
+                content = _content;
+            }
+        }
     }
 }

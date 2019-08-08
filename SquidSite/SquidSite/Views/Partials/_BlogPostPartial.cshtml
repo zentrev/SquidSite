@@ -2,11 +2,31 @@
 @model BlogPost
 
 <div>
+    <div>@Model.title</div>
     <img src="~/images/@Model.posterUserIcon" />
     <div>@Model.posterUserName</div>
     <div>
         <p>@Model.content</p>
     </div>
-    @Model.dateEdited
-    @Model.datePosted
+    <div>
+        @Model.dateEdited
+    </div>
+    <div>
+        @Model.datePosted
+    </div>
+    <div>
+        @foreach (BlogPost.Comment c in Model.comments)
+        {
+            <div>
+                <img src="~/images/@c.posterUserIcon" />
+                <div>@c.posterUserName</div>
+                <div>
+                    <p>@c.content</p>
+                </div>
+                <div>
+                    @c.dateEdited
+                </div>
+            </div>
+        }
+    </div>
 </div>
