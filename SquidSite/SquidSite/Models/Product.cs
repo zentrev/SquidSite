@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace SquidSite.Models
 {
-    public class Product
+    public abstract class Product
     {
-        int key;
-        string title;
-        float cost;
-        string description;
+        int key = -1;
+        string title = "Default Item Title";
+        float cost = 0.00f;
+        string description = "Default Item Description";
         List<string> imageURLS;
+    }
 }
