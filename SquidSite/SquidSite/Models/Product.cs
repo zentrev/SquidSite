@@ -12,6 +12,4 @@ namespace SquidSite.Models
         float cost;
         string description;
         List<string> imageURLS;
-
-    }
 }
