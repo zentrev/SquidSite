@@ -13,6 +13,7 @@ namespace SquidSite.Controllers
             return View();
         }
 
+        [Route("/Shop/ItemInfoPage")]
         public IActionResult ItemInfoPage()
         {
             return View();
