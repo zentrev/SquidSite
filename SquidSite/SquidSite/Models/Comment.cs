@@ -8,8 +8,8 @@ namespace SquidSite.Models
     public class Comment
     {
         public int CommentId;
-        public int BlogId;
-        public int WriterId;
+        public Blog Blog;
+        public User User;
         public DateTime dateEdited;
         public string text;
     }

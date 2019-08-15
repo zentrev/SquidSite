@@ -8,17 +8,17 @@ namespace SquidSite.Database.Interfaces
 {
     public interface IBlogDAL
     {
-        IEnumerable<BlogPost> GetAll();
-        IEnumerable<BlogPost> GetPinned();
-        IEnumerable<BlogPost> Search(string Title);
-        IEnumerable<BlogPost> Search(int ID);
-        IEnumerable<BlogPost> Filter(BlogPost.eBlogTag tag);
+        IEnumerable<Blog> GetAll();
+        IEnumerable<Blog> GetPinned();
+        IEnumerable<Blog> Search(string Title);
+        IEnumerable<Blog> Search(int ID);
+        IEnumerable<Blog> Filter(Blog.eBlogTag tag);
 
-        bool AddBlog(BlogPost blog);
+        bool AddBlog(Blog blog);
         bool DeleteBlog(int Key);
-        bool DeleteBlog(BlogPost blog);
-        bool EditBlog(int Key, BlogPost blog);
-        BlogPost GetBlog(int Key);
-        int GetKey(BlogPost blog);
+        bool DeleteBlog(Blog blog);
+        bool EditBlog(int Key, Blog blog);
+        Blog GetBlog(int Key);
+        int GetKey(Blog blog);
     }
 }

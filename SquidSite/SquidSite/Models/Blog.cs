@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SquidSite.Models
 {
-    public class BlogPost
+    public class Blog
     {
         [Flags]
         public enum eBlogTag
@@ -16,12 +16,13 @@ namespace SquidSite.Models
             DEVBLOG     = 1 << 3,
             PINNED      = 1 << 4,
         }
-        public int blogId;
-        public int writerId;
-        public string title;
-        public DateTime datePosted;
-        public DateTime dateEdited;
-        public string text;
-        public eBlogTag tag;
+        public int BlogId;
+        public User User;
+        public string Title;
+        public DateTime DatePosted;
+        public DateTime DateEdited;
+        public string Text;
+        public eBlogTag Tag;
+        public List<Comment> comments;
     }
 }
