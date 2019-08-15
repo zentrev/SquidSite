@@ -24,14 +24,23 @@ body {
     background: var(--accent-color-2);
 }
 nav{
-    display: block;
+    display: inline-flex;
     height: 30px;
-    width: 80px;
     background: var(--squidboot-purple);
     font-family: var(--header-font);
     color: var(--main-font-color);
     font-size: 24px;
 }
+
+    nav a {
+        display: inline-flex;
+        height: 30px;
+        width: 120px;
+        background: var(--squidboot-purple);
+        font-family: var(--header-font);
+        color: var(--main-font-color);
+        font-size: 24px;
+    }
 /* ------   General -------*/
 .icon {
     width: 50px;
