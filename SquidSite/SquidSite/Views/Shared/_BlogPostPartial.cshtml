@@ -1,32 +1,18 @@
 ﻿@using SquidSite.Models
-@model BlogPost
+@model Blog
 
 <div class="BlogBox">
-    <div class="BlogTitle">@Model.title</div>
-    <img class="icon" src="~/images/@Model.posterUserIcon" />
-    <div class="BlogUsername">@Model.posterUserName</div>
+    <div class="BlogTitle">@Model.Title</div>
     <div class="BlogContent">
-        <p>@Model.content</p>
+        <p>@Model.Text</p>
     </div>
     <div class="BlogEditedDate">
-        @Model.dateEdited
+        @Model.DateEdited
     </div>
     <div class="BlogPostedDate">
-        @Model.datePosted
+        @Model.DatePosted
     </div>
-    <div >
-        @foreach (BlogPost.Comment c in Model.comments)
-        {
-            <div class="BlogCommentBox">
-                <img class="icon" src="~/images/@c.posterUserIcon" />
-                <div class="BlogCommentUsername">@c.posterUserName</div>
-                <div class="BlogCommentContent">
-                    <p>@c.content</p>
-                </div>
-                <div class="BlogCommentEditedDate">
-                    @c.dateEdited
-                </div>
-            </div>
-        }
+    <div>
+        <!--comments-->
     </div>
 </div>

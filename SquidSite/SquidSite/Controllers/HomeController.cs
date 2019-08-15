@@ -38,5 +38,16 @@ namespace RoutingDemo.Controllers
             string searchrequest = Request.Form["SearchTitle"];
             return View("Blog", bdb.Search(searchrequest).ToList());
         }
+
+
+        public IActionResult WriteNewPost()
+        {
+            return View("BlogPostEdit");
+        }
+
+        public IActionResult EditBlogPost()
+        {
+            return View("Blog");
+        }
     }
 }

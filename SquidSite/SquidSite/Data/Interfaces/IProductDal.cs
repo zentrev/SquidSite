@@ -10,6 +10,7 @@ namespace SquidSite.Data.Interfaces
     {
         IEnumerable<Product> GetAll();
         IEnumerable<Product> Search(string Name);
+        IEnumerable<Product> Search(int ID);
 
         bool AddProduct(Product product);
         bool DeleteProduct(int Key);
