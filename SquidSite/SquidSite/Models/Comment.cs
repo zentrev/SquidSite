@@ -10,7 +10,7 @@ namespace SquidSite.Models
         public int CommentId;
         public Blog Blog;
         public User User;
-        public DateTime dateEdited;
-        public string text;
+        public DateTime DateEdited;
+        public string Text;
     }
 }

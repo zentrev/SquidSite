@@ -38,7 +38,7 @@ namespace SquidSite
                 routes.MapRoute(
                     name: "Blog",
                     template: "/Blog",
-                    defaults: new { controller = "Home", action = "Blog" }
+                    defaults: new { controller = "Blog", action = "AllBlogs" }
                     );
 
                 routes.MapRoute(
@@ -63,6 +63,12 @@ namespace SquidSite
                     name: "login",
                     template: "/Login",
                     defaults: new { controller = "User", action = "Login" }
+                    );
+
+                routes.MapRoute(
+                    name: "catch",
+                    template: "{*url}",
+                    defaults: new { controller = "Home", action = "Index" }
                     );
             });
 

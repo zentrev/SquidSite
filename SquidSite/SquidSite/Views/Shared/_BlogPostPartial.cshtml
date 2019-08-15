@@ -13,6 +13,22 @@
         @Model.DatePosted
     </div>
     <div>
-        <!--comments-->
+        @if (Model.comments != null)
+        {
+        @foreach (Comment c in Model.comments)
+        {
+        <div>
+            @c.Text;
+        </div>
+        }
+        }
+    </div>
+    <div>
+        <form method="post" action="~/Blog/AddComment">
+            <input name="Blog" value="@Model"  disabled hidden/>
+            <input class="" type="text" name="Text" placeholder="Write Comment here"><br />
+            <input class="" type="text" name="DateEdited" placeholder="" disabled hidden><br />
+            <input class="" type="submit" value="New Comment" />
+        </form>
     </div>
 </div>

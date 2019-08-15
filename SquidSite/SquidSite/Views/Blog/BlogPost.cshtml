@@ -1,7 +1,7 @@
 ﻿@using SquidSite.Models
-@model BlogPost
+@model Blog
 @{
-    ViewData["Title"] = "BlogPostEdit";
+    ViewData["Title"] = "BlogPost";
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
@@ -9,10 +9,10 @@
     @if (Model != null)
     {
         <form method="post" action="~/Home/WriteNewPost">
-            <input class="" type="text" name="title" placeholder="Title" value="@Model.title"><br />
-            <input class="" type="text" name="posterUserIcon" placeholder="Text" value="@Model.text"><br />
-            <input class="" type="text" name="dateEdited" placeholder="" disabled hidden value="@Model.dateEdited"><br />
-            <input class="" type="text" name="datePosted" placeholder="" disabled hidden value="@Model.datePosted"><br />
+            <input class="" type="text" name="title" placeholder="Title" value="@Model.Title"><br />
+            <input class="" type="text" name="posterUserIcon" placeholder="Text" value="@Model.Text"><br />
+            <input class="" type="text" name="dateEdited" placeholder="" disabled hidden value="@Model.DateEdited"><br />
+            <input class="" type="text" name="datePosted" placeholder="" disabled hidden value="@Model.DatePosted"><br />
             <input class="" type="submit" />
         </form>
     }

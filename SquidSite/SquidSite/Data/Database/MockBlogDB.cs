@@ -11,8 +11,46 @@ namespace SquidSite.Data.Database
     {
         public static List<Blog> mockDB = new List<Blog>()
         {
-            new Blog() { Title="Blog1", Text="TestBlog1", DatePosted=DateTime.Now },
-            new Blog() { Title="Blog3", Text="TestBlog3", DatePosted=DateTime.Now },
+            new Blog() {
+                Title ="Blog1",
+                Text ="TestBlog1",
+                User = new User(),
+                DatePosted =DateTime.Now,
+                comments = new List<Comment>(){
+                    new Comment(){
+                        Text = "Hi There",
+                        User = new User(),
+                        DateEdited =DateTime.Now,
+                    }
+                }
+            },
+            new Blog() {
+                Title ="Blog2",
+                Text ="TestBlog2",
+                User = new User(),
+                DatePosted =DateTime.Now,
+                comments = new List<Comment>(){
+                    new Comment(){
+                        User = new User(),
+                        Text = "Hi There Im comment",
+                        DateEdited =DateTime.Now,
+
+                    }
+                }
+            },
+            new Blog() {
+                Title ="Blog3",
+                Text ="TestBlog3",
+                User = new User(),
+                DatePosted =DateTime.Now,
+                comments = new List<Comment>(){
+                    new Comment(){
+                        User = new User(),
+                        Text = "Hi There Im another Comment",
+                        DateEdited =DateTime.Now,
+                    }
+                }
+            },
         };
 
         public bool AddBlog(Blog blog)
