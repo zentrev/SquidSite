@@ -29,10 +29,17 @@ namespace SquidSite
 
             app.UseMvc(routes =>
             {
+
                 routes.MapRoute(
-                    name: "default",
-                    template: "",
-                    defaults: new { controller = "Home", action = "Index" }
+                    name: "register",
+                    template: "/Register",
+                    defaults: new { controller = "User", action = "Register"}
+                    );
+
+                routes.MapRoute(
+                    name: "login",
+                    template: "/Login",
+                    defaults: new { controller = "User", action = "Login"}
                     );
 
                 routes.MapRoute(
@@ -40,6 +47,12 @@ namespace SquidSite
                 template: "/Blog",
                 defaults: new { controller = "Home", action = "Blog" }
                 );
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "",
+                    defaults: new { controller = "Home", action = "Index" }
+                    );
             });
 
         }
