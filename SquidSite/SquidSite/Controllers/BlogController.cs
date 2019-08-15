@@ -29,14 +29,16 @@ namespace SquidSite.Controllers
             return View("Blog", bdb.Search(searchrequest).ToList());
         }
 
-        public IActionResult AddComment(Blog blog, string Text)
+        public IActionResult AddComment(string Text)
         {
+            int blogId = int.Parse(Request.Form["BlogID"]);
             Comment comment = new Comment();
+            comment.CommentId = new Random().Next(1000);
+            comment.Blog = bdb.GetBlog(blogId);
             comment.Text = Text;
             comment.DateEdited = DateTime.Now;
-            blog.comments.Add(comment);
-
-            return View("AllBlogs", blog);
+            bdb.GetBlog(blogId).comments.Add(comment);
+            return View("AllBlogs");
         }
 
         public IActionResult WriteNewPost()

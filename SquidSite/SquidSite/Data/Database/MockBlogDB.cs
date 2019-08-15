@@ -12,25 +12,29 @@ namespace SquidSite.Data.Database
         public static List<Blog> mockDB = new List<Blog>()
         {
             new Blog() {
+                BlogId = 1000,
                 Title ="Blog1",
                 Text ="TestBlog1",
                 User = new User(),
                 DatePosted =DateTime.Now,
                 comments = new List<Comment>(){
                     new Comment(){
+                        CommentId = 100,
                         Text = "Hi There",
                         User = new User(),
-                        DateEdited =DateTime.Now,
+                        DateEdited = DateTime.Now,
                     }
                 }
             },
             new Blog() {
+                BlogId = 2000,
                 Title ="Blog2",
                 Text ="TestBlog2",
                 User = new User(),
                 DatePosted =DateTime.Now,
                 comments = new List<Comment>(){
                     new Comment(){
+                        CommentId = 110,
                         User = new User(),
                         Text = "Hi There Im comment",
                         DateEdited =DateTime.Now,
@@ -39,12 +43,14 @@ namespace SquidSite.Data.Database
                 }
             },
             new Blog() {
+                BlogId = 3003,
                 Title ="Blog3",
                 Text ="TestBlog3",
                 User = new User(),
                 DatePosted =DateTime.Now,
                 comments = new List<Comment>(){
                     new Comment(){
+                        CommentId = 111,
                         User = new User(),
                         Text = "Hi There Im another Comment",
                         DateEdited =DateTime.Now,

@@ -25,7 +25,7 @@
     </div>
     <div>
         <form method="post" action="~/Blog/AddComment">
-            <input name="Blog" value="@Model"  disabled hidden/>
+            <input type="number" name="BlogId" value="@Model.BlogId"  disabled hidden/>
             <input class="" type="text" name="Text" placeholder="Write Comment here"><br />
             <input class="" type="text" name="DateEdited" placeholder="" disabled hidden><br />
             <input class="" type="submit" value="New Comment" />
