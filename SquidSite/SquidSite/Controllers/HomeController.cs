@@ -10,7 +10,8 @@ namespace RoutingDemo.Controllers
     public class HomeController : Controller
     {
 
-        public IActionResult dataTest()
+        [Route("/data_Test")]
+        public IActionResult data_Test()
         {
             return View();
         }
