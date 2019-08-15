@@ -52,6 +52,18 @@ namespace SquidSite
                     template: "/Shop/ItemInfoPage",
                     defaults: new { controller = "Shop", action = "ItemInfoPage" }
                     );
+
+                routes.MapRoute(
+                    name: "register",
+                    template: "/Register",
+                    defaults: new { controller = "User", action = "Register" }
+                    );
+
+                routes.MapRoute(
+                    name: "login",
+                    template: "/Login",
+                    defaults: new { controller = "User", action = "Login" }
+                    );
             });
 
         }
