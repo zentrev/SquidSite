@@ -87,5 +87,10 @@ namespace SquidSite.Data.Database
         {
             return mockDB.Where(b => b.title.Contains(Title));
         }
+
+        public IEnumerable<BlogPost> Search(int ID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
