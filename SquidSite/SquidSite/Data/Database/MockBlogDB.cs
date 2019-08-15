@@ -11,20 +11,8 @@ namespace SquidSite.Data.Database
     {
         public static List<BlogPost> mockDB = new List<BlogPost>()
         {
-            new BlogPost() { title="Blog1", content="TestBlog1", posterUserName="Test", datePosted=DateTime.Now },
-            new BlogPost() {
-                title ="Blog2",
-                content ="TestBlog2",
-                posterUserName ="Test",
-                datePosted =DateTime.Now,
-                comments = new List<BlogPost.Comment>
-                {
-                    new BlogPost.Comment("TestUser", "squidbootlogo.png", DateTime.Now, "Test Comment 1"),
-                    new BlogPost.Comment("TestUser", "squidbootlogo.png", DateTime.Now, "Test Comment 2"),
-                    new BlogPost.Comment("TestUser", "squidbootlogo.png", DateTime.Now, "Test Comment 3")
-                }
-            },
-            new BlogPost() { title="Blog3", content="TestBlog3", posterUserName="Test", datePosted=DateTime.Now },
+            new BlogPost() { title="Blog1", text="TestBlog1", datePosted=DateTime.Now },
+            new BlogPost() { title="Blog3", text="TestBlog3", datePosted=DateTime.Now },
         };
 
         public bool AddBlog(BlogPost blog)

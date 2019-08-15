@@ -9,10 +9,8 @@
     @if (Model != null)
     {
         <form method="post" action="~/Home/WriteNewPost">
-            <input class="" type="text" name="title" placeholder="Genre" value="@Model.title"><br />
-            <input class="" type="text" name="posterUserIcon" placeholder="Platform" value="@Model.posterUserIcon" disabled><br />
-            <input class="" type="text" name="posterUserName" placeholder="ESRB Rating" value="@Model.posterUserName" disabled><br />
-            <input class="" type="text" name="content" placeholder="Content here" value="@Model.content"><br />
+            <input class="" type="text" name="title" placeholder="Title" value="@Model.title"><br />
+            <input class="" type="text" name="posterUserIcon" placeholder="Text" value="@Model.text"><br />
             <input class="" type="text" name="dateEdited" placeholder="" disabled hidden value="@Model.dateEdited"><br />
             <input class="" type="text" name="datePosted" placeholder="" disabled hidden value="@Model.datePosted"><br />
             <input class="" type="submit" />
@@ -21,10 +19,8 @@
     else
     {
         <form method="post" action="~/Home/EditBlogPost">
-            <input class="" type="text" name="title" placeholder="Genre"><br />
-            <input class="" type="text" name="posterUserIcon" placeholder="Platform" disabled><br />
-            <input class="" type="text" name="posterUserName" placeholder="ESRB Rating" disabled><br />
-            <input class="" type="text" name="content" placeholder="Content here"><br />
+            <input class="" type="text" name="title" placeholder="Title"><br />        
+            <input class="" type="text" name="text" placeholder="Content here"><br />
             <input class="" type="text" name="dateEdited" placeholder="" disabled hidden><br />
             <input class="" type="text" name="datePosted" placeholder="" disabled hidden><br />
             <input class="" type="submit" />

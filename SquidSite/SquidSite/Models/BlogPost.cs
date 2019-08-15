@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace SquidSite.Models
 {
-    //This is temp until we have a database
     public class BlogPost
     {
         [Flags]
@@ -17,29 +16,12 @@ namespace SquidSite.Models
             DEVBLOG     = 1 << 3,
             PINNED      = 1 << 4,
         }
-
+        public int blogId;
+        public int writerId;
         public string title;
-        public string posterUserName;
-        public string posterUserIcon;
         public DateTime datePosted;
         public DateTime dateEdited;
-        public string content;
+        public string text;
         public eBlogTag tag;
-        public List<Comment> comments = new List<Comment>();
-
-        public struct Comment
-        {
-            public string posterUserName;
-            public string posterUserIcon;
-            public DateTime dateEdited;
-            public string content;
-            public Comment(string _posterUserName, string _posterUserIcon, DateTime _dateEdited, string _content)
-            {
-                posterUserName = _posterUserName;
-                posterUserIcon = _posterUserIcon;
-                dateEdited = _dateEdited;
-                content = _content;
-            }
-        }
     }
 }
