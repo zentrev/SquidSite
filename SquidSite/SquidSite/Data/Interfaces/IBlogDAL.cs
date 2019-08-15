@@ -6,13 +6,12 @@ using SquidSite.Models;
 
 namespace SquidSite.Database.Interfaces
 {
-
-
     public interface IBlogDAL
     {
         IEnumerable<BlogPost> GetAll();
         IEnumerable<BlogPost> GetPinned();
         IEnumerable<BlogPost> Search(string Title);
+        IEnumerable<BlogPost> Search(int ID);
         IEnumerable<BlogPost> Filter(BlogPost.eBlogTag tag);
 
         bool AddBlog(BlogPost blog);
