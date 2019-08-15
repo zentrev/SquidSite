@@ -1,6 +1,10 @@
 ﻿@using SquidSite.Models
 @model List<Product>
 
+@{ 
+    Layout = "_mainLayout";
+}
+
 <div id="MainShopContainer">
     <!--Make containers inline (left and right)-->
     <div id="tabBois">
@@ -13,17 +17,24 @@
     </div>
     <div id="ActiveTab">
         <div id="Merch">
-            <!--Foreach game, make a little nice display with image, title and cost-->
-            @foreach(Merchandise merch in Model)
+            @if (Model != null)
             {
-                <partial name="ItemPartial" model="merch"/>
+                <!--Foreach game, make a little nice display with image, title and cost-->
+                @foreach (Merchandise merch in Model)
+                {
+                    <partial name="ItemPartial" model="merch" />
+                }
             }
         </div>
         <div id="Games">
             <!--Foreach game, make a little nice display with image, title and cost-->
-            @foreach(Game game in Model)
+            @if (Model != null)
             {
-                <partial name="ItemPartial" model="game"/>
+                <!--Foreach game, make a little nice display with image, title and cost-->
+                @foreach (Game game in Model)
+                {
+                    <partial name="ItemPartial" model="game" />
+                }
             }
         </div>
     </div>

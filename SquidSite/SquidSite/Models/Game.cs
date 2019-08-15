@@ -7,6 +7,6 @@ namespace SquidSite.Models
 {
     public class Game : Product
     {
-        string downloadLink; // Or something to allow the user to download or play the game.
+        public string DownloadLink { get; set; } // Or something to allow the user to download or play the game.
     }
 }
