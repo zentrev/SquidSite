@@ -16,7 +16,8 @@ namespace RoutingDemo.Controllers
             bdb = context;
         }
 
-        public IActionResult dataTest()
+        [Route("/data_Test")]
+        public IActionResult data_Test()
         {
             return View();
         }
@@ -36,6 +37,17 @@ namespace RoutingDemo.Controllers
         {
             string searchrequest = Request.Form["SearchTitle"];
             return View("Blog", bdb.Search(searchrequest).ToList());
+        }
+
+
+        public IActionResult WriteNewPost()
+        {
+            return View("BlogPostEdit");
+        }
+
+        public IActionResult EditBlogPost()
+        {
+            return View("Blog");
         }
     }
 }
