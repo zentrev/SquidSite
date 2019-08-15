@@ -16,6 +16,11 @@ namespace RoutingDemo.Controllers
             bdb = context;
         }
 
+        public IActionResult dataTest()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();

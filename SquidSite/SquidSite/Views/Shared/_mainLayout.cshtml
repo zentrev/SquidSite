@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/Style/Main.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Quicksand&display=swap" rel="stylesheet">
+    @RenderSection("ExtraHeadStuff", false)
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <nav>
         <a asp-action="Index" asp-controller="Home">Home</a>&emsp;
+        <br />
+        <a asp-action="Index" asp-controller="Shop">Shop</a>&emsp;
+        <br />
+        <a asp-action="ItemInfoPage" asp-controller="Shop">Item Info</a>&emsp;
     </nav>
     <div>
         @RenderBody()
