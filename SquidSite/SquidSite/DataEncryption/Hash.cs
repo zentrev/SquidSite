@@ -6,21 +6,21 @@ using BCrypt.Net;
 
 namespace SquidSite.DataEncryption
 {
-    public static class _BCrypt
+    public static class Hash
     {
         private const int WF = 18;
 
-        private static string GetRandomSalt()
+        private static string GetRandomBSalt()
         {
             return BCrypt.Net.BCrypt.GenerateSalt(WF);
         }
 
-        public static string HashPassword(string password)
+        public static string BHashPassword(string password)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password, GetRandomSalt());
+            return BCrypt.Net.BCrypt.HashPassword(password, GetRandomBSalt());
         }
 
-        public static bool ValidatePassword(string password, string correctHash)
+        public static bool BValidatePassword(string password, string correctHash)
         {
             return BCrypt.Net.BCrypt.Verify(password, correctHash);
         }
