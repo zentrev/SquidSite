@@ -32,12 +32,12 @@ namespace SquidSite.Controllers
         public IActionResult AddComment(string Text)
         {
             int blogId = int.Parse(Request.Form["BlogID"]);
-            Comment comment = new Comment();
-            comment.CommentId = new Random().Next(1000);
-            comment.Blog = bdb.GetBlog(blogId);
-            comment.Text = Text;
-            comment.DateEdited = DateTime.Now;
-            bdb.GetBlog(blogId).comments.Add(comment);
+            //Comment comment = new Comment();
+            //comment.CommentId = new Random().Next(1000);
+            //comment.Blog = bdb.GetBlog(blogId);
+            //comment.Text = Text;
+            //comment.DateEdited = DateTime.Now;
+            //bdb.GetBlog(blogId).comments.Add(comment);
             return View("AllBlogs");
         }
 

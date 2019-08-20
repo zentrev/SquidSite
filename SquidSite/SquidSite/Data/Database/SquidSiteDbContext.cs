@@ -15,7 +15,26 @@ namespace SquidSite.Data.Database
         public DbSet<Game> Games { get; set; }
         public DbSet<Merchandise> Merchandise { get; set; }
 
+        //----Links----
+        public DbSet<UserBlog> UserBlogs { get; set; }
+        public DbSet<UserComment> UserComments { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
+
         public SquidSiteDbContext(DbContextOptions<SquidSiteDbContext> options) : base(options) { }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserBlog>()
+                .HasKey(ub => new { ub.UserId, ub.BlogId });
+            modelBuilder.Entity<UserBlog>()
+                .HasOne(ub => ub.User)
+                .WithMany(b => b.)
+                .HasForeignKey(bc => bc.GameID);
+            modelBuilder.Entity<UserBlog>()
+                .HasOne(ub => ub.Game)
+                .WithMany(g => g.GameGenres)
+                .HasForeignKey(ub => gg.GameID);
+        }
     }
 }
