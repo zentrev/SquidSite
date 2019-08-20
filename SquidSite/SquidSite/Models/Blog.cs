@@ -23,6 +23,6 @@ namespace SquidSite.Models
         public DateTime DateEdited;
         public string Text;
         public eBlogTag Tag;
-        public List<Comment> comments;
+        public List<BlogComment> BlogComments;
     }
 }

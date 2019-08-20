@@ -22,5 +22,8 @@ namespace SquidSite.Models
         public string userName;
         public string passwordHash;
         public List<Game> ownedGames = new List<Game>();
+
+        public List<UserBlog> UserBlogs { get; set; }
+        public List<UserComment> UserComments { get; set; }
     }
 }

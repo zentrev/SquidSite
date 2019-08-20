@@ -93,9 +93,9 @@ namespace SquidSite.Data.Database
             return mockDB;
         }
 
-        public Blog GetBlog(int Key)
+        public Blog GetBlog(int ID)
         {
-            return mockDB[Key];
+            return mockDB.First(b => b.BlogId == ID);
         }
 
         public int GetKey(Blog blog)
@@ -122,7 +122,7 @@ namespace SquidSite.Data.Database
 
         public IEnumerable<Blog> Search(int ID)
         {
-            throw new NotImplementedException();
+            return mockDB.Where(b => b.BlogId == ID);
         }
     }
 }
