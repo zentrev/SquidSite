@@ -1,5 +1,5 @@
 ﻿@using SquidSite.Models
-@model List<BlogPost>
+@model List<Blog>
 @{
     ViewData["Title"] = "Blog";
     Layout = "~/Views/Shared/_blogLayout.cshtml";
@@ -12,12 +12,12 @@
         <input type="text" name="SearchTitle" placeholder="Search"/><input type="submit" value="Search" />
     </form>
 </div>
-
+<a asp-action="WriteNewPost" asp-controller="Home">New Blog Post</a>
 <div>
     Pinned Blogs
-    @foreach (BlogPost bpost in Model)
+    @foreach (Blog bpost in Model)
     {
-         @if (bpost.tag == BlogPost.eBlogTag.PINNED)
+         @if (bpost.Tag == Blog.eBlogTag.PINNED)
          {
             <partial name="_BlogPostPartial" model="@bpost" />
          }
@@ -25,7 +25,7 @@
 </div>
 
 <div>
-    @foreach(BlogPost bpost in Model){
+    @foreach(Blog bpost in Model){
         <partial name="_BlogPostPartial" model="@bpost" />
     }
 </div>

@@ -1,0 +1,30 @@
+﻿@using SquidSite.Models
+@model Blog
+@{
+    ViewData["Title"] = "BlogPost";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<div class="">
+    @if (Model != null)
+    {
+        <form method="post" action="~/Home/WriteNewPost">
+            <input class="" type="text" name="title" placeholder="Title" value="@Model.Title"><br />
+            <input class="" type="text" name="posterUserIcon" placeholder="Text" value="@Model.Text"><br />
+            <input class="" type="text" name="dateEdited" placeholder="" disabled hidden value="@Model.DateEdited"><br />
+            <input class="" type="text" name="datePosted" placeholder="" disabled hidden value="@Model.DatePosted"><br />
+            <input class="" type="submit" />
+        </form>
+    }
+    else
+    {
+        <form method="post" action="~/Home/EditBlogPost">
+            <input class="" type="text" name="title" placeholder="Title"><br />        
+            <input class="" type="text" name="text" placeholder="Content here"><br />
+            <input class="" type="text" name="dateEdited" placeholder="" disabled hidden><br />
+            <input class="" type="text" name="datePosted" placeholder="" disabled hidden><br />
+            <input class="" type="submit" />
+        </form>
+    }
+
+</div>

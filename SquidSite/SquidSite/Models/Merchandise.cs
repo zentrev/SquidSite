@@ -23,5 +23,7 @@ namespace SquidSite.Models
             MEDUIM   = 1 << 2,
             LARGE    = 1 << 3,
         }
+
+
     }
 }

@@ -36,10 +36,40 @@ namespace SquidSite
                     );
 
                 routes.MapRoute(
-                name: "blog",
-                template: "/Blog",
-                defaults: new { controller = "Home", action = "Blog" }
-                );
+                    name: "Blog",
+                    template: "/Blog",
+                    defaults: new { controller = "Blog", action = "AllBlogs" }
+                    );
+
+                routes.MapRoute(
+                    name: "Shop",
+                    template: "/Shop",
+                    defaults: new { controller = "Shop", action = "Index" }
+                    );
+
+                routes.MapRoute(
+                    name: "ItemInfoPage",
+                    template: "/Shop/ItemInfoPage",
+                    defaults: new { controller = "Shop", action = "ItemInfoPage" }
+                    );
+
+                routes.MapRoute(
+                    name: "register",
+                    template: "/Register",
+                    defaults: new { controller = "User", action = "Register" }
+                    );
+
+                routes.MapRoute(
+                    name: "login",
+                    template: "/Login",
+                    defaults: new { controller = "User", action = "Login" }
+                    );
+
+                routes.MapRoute(
+                    name: "catch",
+                    template: "{*url}",
+                    defaults: new { controller = "Home", action = "Index" }
+                    );
             });
 
         }

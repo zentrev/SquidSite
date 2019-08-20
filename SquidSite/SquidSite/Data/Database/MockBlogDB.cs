@@ -9,25 +9,57 @@ namespace SquidSite.Data.Database
 {
     public class MockBlogDB : IBlogDAL
     {
-        public static List<BlogPost> mockDB = new List<BlogPost>()
+        public static List<Blog> mockDB = new List<Blog>()
         {
-            new BlogPost() { title="Blog1", content="TestBlog1", posterUserName="Test", datePosted=DateTime.Now },
-            new BlogPost() {
-                title ="Blog2",
-                content ="TestBlog2",
-                posterUserName ="Test",
-                datePosted =DateTime.Now,
-                comments = new List<BlogPost.Comment>
-                {
-                    new BlogPost.Comment("TestUser", "squidbootlogo.png", DateTime.Now, "Test Comment 1"),
-                    new BlogPost.Comment("TestUser", "squidbootlogo.png", DateTime.Now, "Test Comment 2"),
-                    new BlogPost.Comment("TestUser", "squidbootlogo.png", DateTime.Now, "Test Comment 3")
+            new Blog() {
+                BlogId = 1000,
+                Title ="Blog1",
+                Text ="TestBlog1",
+                User = new User(),
+                DatePosted =DateTime.Now,
+                comments = new List<Comment>(){
+                    new Comment(){
+                        CommentId = 100,
+                        Text = "Hi There",
+                        User = new User(),
+                        DateEdited = DateTime.Now,
+                    }
                 }
             },
-            new BlogPost() { title="Blog3", content="TestBlog3", posterUserName="Test", datePosted=DateTime.Now },
+            new Blog() {
+                BlogId = 2000,
+                Title ="Blog2",
+                Text ="TestBlog2",
+                User = new User(),
+                DatePosted =DateTime.Now,
+                comments = new List<Comment>(){
+                    new Comment(){
+                        CommentId = 110,
+                        User = new User(),
+                        Text = "Hi There Im comment",
+                        DateEdited =DateTime.Now,
+
+                    }
+                }
+            },
+            new Blog() {
+                BlogId = 3003,
+                Title ="Blog3",
+                Text ="TestBlog3",
+                User = new User(),
+                DatePosted =DateTime.Now,
+                comments = new List<Comment>(){
+                    new Comment(){
+                        CommentId = 111,
+                        User = new User(),
+                        Text = "Hi There Im another Comment",
+                        DateEdited =DateTime.Now,
+                    }
+                }
+            },
         };
 
-        public bool AddBlog(BlogPost blog)
+        public bool AddBlog(Blog blog)
         {
             mockDB.Add(blog);
             return true;
@@ -39,34 +71,34 @@ namespace SquidSite.Data.Database
             return true;
         }
 
-        public bool DeleteBlog(BlogPost blog)
+        public bool DeleteBlog(Blog blog)
         {
             mockDB.Remove(blog);
             return true;
         }
 
-        public bool EditBlog(int Key, BlogPost blog)
+        public bool EditBlog(int Key, Blog blog)
         {
             mockDB[Key] = blog;
             return true;
         }
 
-        public IEnumerable<BlogPost> Filter(BlogPost.eBlogTag tag)
+        public IEnumerable<Blog> Filter(Blog.eBlogTag tag)
         {
-            return mockDB.Where(b => b.tag.HasFlag(tag));
+            return mockDB.Where(b => b.Tag.HasFlag(tag));
         }
 
-        public IEnumerable<BlogPost> GetAll()
+        public IEnumerable<Blog> GetAll()
         {
             return mockDB;
         }
 
-        public BlogPost GetBlog(int Key)
+        public Blog GetBlog(int Key)
         {
             return mockDB[Key];
         }
 
-        public int GetKey(BlogPost blog)
+        public int GetKey(Blog blog)
         {
             for(int i = 0; i < mockDB.Count; i++)
             {
@@ -78,14 +110,19 @@ namespace SquidSite.Data.Database
             return -1;
         }
 
-        public IEnumerable<BlogPost> GetPinned()
+        public IEnumerable<Blog> GetPinned()
         {
-            return mockDB.Where(b => b.tag.HasFlag(BlogPost.eBlogTag.PINNED));
+            return mockDB.Where(b => b.Tag.HasFlag(Blog.eBlogTag.PINNED));
         }
 
-        public IEnumerable<BlogPost> Search(string Title)
+        public IEnumerable<Blog> Search(string Title)
         {
-            return mockDB.Where(b => b.title.Contains(Title));
+            return mockDB.Where(b => b.Title.Contains(Title));
+        }
+
+        public IEnumerable<Blog> Search(int ID)
+        {
+            throw new NotImplementedException();
         }
     }
 }

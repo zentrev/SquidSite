@@ -1,32 +1,34 @@
 ﻿@using SquidSite.Models
-@model BlogPost
+@model Blog
 
 <div class="BlogBox">
-    <div class="BlogTitle">@Model.title</div>
-    <img class="icon" src="~/images/@Model.posterUserIcon" />
-    <div class="BlogUsername">@Model.posterUserName</div>
+    <div class="BlogTitle">@Model.Title</div>
     <div class="BlogContent">
-        <p>@Model.content</p>
+        <p>@Model.Text</p>
     </div>
     <div class="BlogEditedDate">
-        @Model.dateEdited
+        @Model.DateEdited
     </div>
     <div class="BlogPostedDate">
-        @Model.datePosted
+        @Model.DatePosted
     </div>
-    <div >
-        @foreach (BlogPost.Comment c in Model.comments)
+    <div>
+        @if (Model.comments != null)
         {
-            <div class="BlogCommentBox">
-                <img class="icon" src="~/images/@c.posterUserIcon" />
-                <div class="BlogCommentUsername">@c.posterUserName</div>
-                <div class="BlogCommentContent">
-                    <p>@c.content</p>
-                </div>
-                <div class="BlogCommentEditedDate">
-                    @c.dateEdited
-                </div>
-            </div>
+        @foreach (Comment c in Model.comments)
+        {
+        <div>
+            @c.Text;
+        </div>
         }
+        }
+    </div>
+    <div>
+        <form method="post" action="~/Blog/AddComment">
+            <input type="number" name="BlogId" value="@Model.BlogId"  disabled hidden/>
+            <input class="" type="text" name="Text" placeholder="Write Comment here"><br />
+            <input class="" type="text" name="DateEdited" placeholder="" disabled hidden><br />
+            <input class="" type="submit" value="New Comment" />
+        </form>
     </div>
 </div>
