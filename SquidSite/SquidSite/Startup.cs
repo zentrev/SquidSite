@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SquidSite.Data.Database;
 using SquidSite.Database.Interfaces;
@@ -13,11 +15,19 @@ namespace SquidSite
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; set; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddDbContext<SquidSiteDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AWS Connection")));
             services.AddTransient(typeof(IBlogDAL), typeof(MockBlogDB));
-
+            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
