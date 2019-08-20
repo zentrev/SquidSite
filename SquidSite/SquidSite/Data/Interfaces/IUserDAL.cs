@@ -17,7 +17,7 @@ namespace SquidSite.Data.Interfaces
         bool AddUser(User user);
         bool DeleteUser(int Key);
         bool DeleteUser(User blog);
-        bool EditUSer(int key, User user);
+        bool EditUser(int key, User user);
         Blog GetUser(int key);
         int GetKey(User blog);
     }

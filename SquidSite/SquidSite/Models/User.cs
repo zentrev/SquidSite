@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SquidSite.Models;
 
 namespace SquidSite.Models
 {
@@ -13,8 +14,13 @@ namespace SquidSite.Models
             NONE = 1 << 0,
             STANDARD = 1 << 1,
             ADMIN = 1 << 2,
-            DEVBLOG = 1 << 3,
-            PINNED = 1 << 4,
         }
+
+        public int ID = 0;
+        public eUserType userType = 0;
+        public string email;
+        public string userName;
+        public string password;
+        public List<Game> ownedGames = new List<Game>();
     }
 }
