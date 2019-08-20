@@ -17,12 +17,11 @@ namespace SquidSite.Models
         }
 
         public int ID = 0;
-        public eUserType userType = 0;
-        public string email;
-        public string userName;
-        public string passwordHash;
-        public List<Game> ownedGames = new List<Game>();
-
+        public eUserType userType { get; set; } = 0;
+        public string email { get; set; }
+        public string userName { get; set; }
+        public string passwordHash { get; set; }
+        public List<Game> ownedGames { get; set; } = new List<Game>();
         public List<UserBlog> UserBlogs { get; set; }
         public List<UserComment> UserComments { get; set; }
     }

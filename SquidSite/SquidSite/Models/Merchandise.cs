@@ -7,23 +7,25 @@ namespace SquidSite.Models
 {
     public class Merchandise : Product
     {
-        enum eMerchTags
+        public enum eMerchTags
         {
-            NONE    = 1 << 0,
-            SHIRT   = 1 << 2,
-            HAT     = 1 << 3,
-            SOCKS   = 1 << 4,
-            MISC    = 1 << 5
+            NONE = 1 << 0,
+            SHIRT = 1 << 2,
+            HAT = 1 << 3,
+            SOCKS = 1 << 4,
+            MISC = 1 << 5
         }
 
-        enum eMerchSize
+        public enum eMerchSize
         {
-            NONE     = 1 << 0,
-            SMALL    = 1 << 1,
-            MEDUIM   = 1 << 2,
-            LARGE    = 1 << 3,
+            NONE = 1 << 0,
+            SMALL = 1 << 1,
+            MEDUIM = 1 << 2,
+            LARGE = 1 << 3,
         }
 
+        public eMerchTags MerchTags {get;set;} = 0;
+        public eMerchSize MerchSize {get;set;} = 0;
 
     }
 }

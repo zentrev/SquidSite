@@ -26,4 +26,18 @@ namespace SquidSite.Models
         public int CommentId;
         public Comment Comment;
     }
+    public class UserGame
+    {
+        public int UserID;
+        public User User;
+        public int GameID;
+        public Game Game;
+    }
+    public class ProductImages
+    {
+        public int ProdcutID;
+        public Product Product;
+        public int ProductImageID;
+        public ProdutImage ProductImage;
+    }
 }
