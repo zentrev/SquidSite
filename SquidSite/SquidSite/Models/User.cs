@@ -20,7 +20,7 @@ namespace SquidSite.Models
         public eUserType userType = 0;
         public string email;
         public string userName;
-        public string password;
+        public string passwordHash;
         public List<Game> ownedGames = new List<Game>();
     }
 }
