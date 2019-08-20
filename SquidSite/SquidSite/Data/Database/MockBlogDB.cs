@@ -11,6 +11,7 @@ namespace SquidSite.Data.Database
     {
         public static List<Blog> mockDB = new List<Blog>()
         {
+            /*
             new Blog() {
                 BlogId = 1000,
                 Title ="Blog1",
@@ -56,7 +57,7 @@ namespace SquidSite.Data.Database
                         DateEdited =DateTime.Now,
                     }
                 }
-            },
+            },*/
         };
 
         public bool AddBlog(Blog blog)
