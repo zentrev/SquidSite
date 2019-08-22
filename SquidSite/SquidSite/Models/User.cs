@@ -16,13 +16,13 @@ namespace SquidSite.Models
             ADMIN = 1 << 2,
         }
 
-        public int ID = 0;
+        public int ID { get; set; } = 0;
         public eUserType userType { get; set; } = 0;
         public string email { get; set; }
         public string userName { get; set; }
         public string passwordHash { get; set; }
         public List<Game> ownedGames { get; set; } = new List<Game>();
-        public List<UserBlog> UserBlogs { get; set; }
-        public List<UserComment> UserComments { get; set; }
+        public List<Blog> UserBlogs { get; set; }
+        public List<Comment> UserComments { get; set; }
     }
 }

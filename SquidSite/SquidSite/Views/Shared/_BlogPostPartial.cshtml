@@ -17,12 +17,12 @@
         <div>
             @if (Model.BlogComments != null)
             {
-                @foreach (BlogComment c in Model.BlogComments)
+                @foreach (Comment c in Model.BlogComments)
                 {
                     <div>
-                        @c.Comment.CommentUser.userName
-                        @c.Comment.CommentDateEdited
-                        @c.Comment.CommentText
+                        @c.CommentUser.userName
+                        @c.CommentDateEdited
+                        @c.CommentText
                     </div>
                 }
             }
