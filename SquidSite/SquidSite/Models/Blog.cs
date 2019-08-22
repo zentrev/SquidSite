@@ -16,13 +16,13 @@ namespace SquidSite.Models
             DEVBLOG     = 1 << 3,
             PINNED      = 1 << 4,
         }
-        public int BlogId;
-        public User User;
-        public string Title;
-        public DateTime DatePosted;
-        public DateTime DateEdited;
-        public string Text;
-        public eBlogTag Tag;
+        public int BlogId { get; set; }
+        public User BlogUser;
+        public string BlogTitle;
+        public DateTime BlogDatePosted;
+        public DateTime BlogDateEdited;
+        public string BlogContent;
+        public eBlogTag BlogTag;
         public List<BlogComment> BlogComments;
     }
 }

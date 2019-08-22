@@ -23,29 +23,29 @@ namespace SquidSite.Data.Database
         public SquidSiteDbContext(DbContextOptions<SquidSiteDbContext> options) : base(options) { }
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<UserBlog>()
-                .HasKey(ub => new { ub.UserId, ub.BlogId });
-            modelBuilder.Entity<UserBlog>()
-                .HasOne(ub => ub.User)
-                .WithMany(b => b.UserBlogs)
-                .HasForeignKey(bc => bc.BlogId);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<UserBlog>()
+        //        .HasKey(ub => new { ub.UserId, ub.BlogId });
+        //    modelBuilder.Entity<UserBlog>()
+        //        .HasOne(ub => ub.User)
+        //        .WithMany(b => b.UserBlogs)
+        //        .HasForeignKey(bc => bc.BlogId);
 
-            modelBuilder.Entity<UserComment>()
-                .HasKey(uc => new { uc.UserId, uc.CommentId });
-            modelBuilder.Entity<UserComment>()
-                .HasOne(ub => ub.User)
-                .WithMany(c => c.UserComments)
-                .HasForeignKey(cb => cb.CommentId);
+        //    modelBuilder.Entity<UserComment>()
+        //        .HasKey(uc => new { uc.UserId, uc.CommentId });
+        //    modelBuilder.Entity<UserComment>()
+        //        .HasOne(ub => ub.User)
+        //        .WithMany(c => c.UserComments)
+        //        .HasForeignKey(cb => cb.CommentId);
 
 
-            modelBuilder.Entity<BlogComment>()
-                .HasKey(bc => new { bc.BlogId, bc.CommentId });
-            modelBuilder.Entity<BlogComment>()
-                .HasOne(bc => bc.Blog)
-                .WithMany(c => c.BlogComments)
-                .HasForeignKey(cb => cb.CommentId);
-        }
+        //    modelBuilder.Entity<BlogComment>()
+        //        .HasKey(bc => new { bc.BlogId, bc.CommentId });
+        //    modelBuilder.Entity<BlogComment>()
+        //        .HasOne(bc => bc.Blog)
+        //        .WithMany(c => c.BlogComments)
+        //        .HasForeignKey(cb => cb.CommentId);
+        //}
     }
 }

@@ -26,7 +26,7 @@ namespace SquidSite
         {
             services.AddDbContext<SquidSiteDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AWS Connection")));
-            services.AddTransient(typeof(IBlogDAL), typeof(MockBlogDB));
+            services.AddTransient(typeof(IBlogDAL), typeof(BlogDBContext));
             services.AddMvc();
         }
 
