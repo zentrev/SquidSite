@@ -13,15 +13,7 @@
         @Model.DatePosted
     </div>
     <div>
-        @if (Model.comments != null)
-        {
-        @foreach (Comment c in Model.comments)
-        {
-        <div>
-            @c.Text;
-        </div>
-        }
-        }
+        
     </div>
     <div>
         <form method="post" action="~/Blog/AddComment">
