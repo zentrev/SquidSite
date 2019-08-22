@@ -17,7 +17,7 @@
     Pinned Blogs
     @foreach (Blog bpost in Model)
     {
-         @if (bpost.Tag == Blog.eBlogTag.PINNED)
+         @if (bpost.BlogTag == Blog.eBlogTag.PINNED)
          {
             <partial name="_BlogPostPartial" model="@bpost" />
          }

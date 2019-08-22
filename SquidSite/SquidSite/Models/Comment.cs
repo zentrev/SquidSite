@@ -7,10 +7,10 @@ namespace SquidSite.Models
 {
     public class Comment
     {
-        public int CommentId;
-        public Blog Blog;
-        public User User;
-        public DateTime DateEdited;
-        public string Text;
+        public int CommentId { get; set; }
+        public Blog CommentBlog { get; set; }
+        public User CommentUser { get; set; }
+        public DateTime CommentDateEdited { get; set; }
+        public string CommentText { get; set; }
     }
 }

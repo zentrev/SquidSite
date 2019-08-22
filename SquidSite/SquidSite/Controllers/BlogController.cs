@@ -11,45 +11,61 @@ namespace SquidSite.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly IBlogDAL bdb;
+        private readonly IBlogDAL bdb_Context;
 
         public BlogController(IBlogDAL context) : base()
         {
-            bdb = context;
+            bdb_Context = context;
         }
 
         public IActionResult AllBlogs()
         {
-            return View(bdb.GetAll());
+            return View(bdb_Context.GetAll());
         }
 
         public IActionResult SearchBlogPost()
         {
             string searchrequest = Request.Form["SearchTitle"];
-            return View("Blog", bdb.Search(searchrequest).ToList());
+            return View("Blog", bdb_Context.Search(searchrequest).ToList());
         }
 
-        public IActionResult AddComment(string Text)
+        public IActionResult AddComment(Comment comment)
         {
             int blogId = int.Parse(Request.Form["BlogID"]);
-            //Comment comment = new Comment();
-            //comment.CommentId = new Random().Next(1000);
-            //comment.Blog = bdb.GetBlog(blogId);
-            //comment.Text = Text;
-            //comment.DateEdited = DateTime.Now;
-            //bdb.GetBlog(blogId).comments.Add(comment);
+           // int userId = int.Parse(Request.Form["UserId"]);
+            comment.CommentDateEdited = DateTime.Now;
+            bdb_Context.AddComment(comment, blogId, 1); //User id is default for now
+
             return View("AllBlogs");
         }
 
         public IActionResult WriteNewPost()
         {
-            return View("BlogPost");
+            return View("PostAndEditBlog");
+        }
+        [HttpPost]
+        public IActionResult WriteNewPost(Blog blog)
+        {
+            // int userId = int.Parse(Request.Form["UserId"]);
+
+            blog.BlogDatePosted = DateTime.Now;
+            blog.BlogDateEdited = DateTime.Now;
+            bdb_Context.AddBlog(blog, 1); //User id is default for now
+            return View("AllBlogs");
+
         }
 
+        public IActionResult EditBlogPost(int blogId)
+        {
+            return View("PostAndEditBlog", bdb_Context.GetBlog(blogId));
+        }
+        [HttpPost]
         public IActionResult EditBlogPost(Blog blog)
         {
-            blog.DateEdited = DateTime.Now;
-            if (blog.DatePosted == null) blog.DatePosted = DateTime.Now;
+            blog.BlogDateEdited = DateTime.Now;
+            int blogId = int.Parse(Request.Form["BlogID"]);
+          //  blog.BlogComments = bdb_Context.GetBlog(blogId).BlogComments; //Is this needed? I dont know how it will connect in the database
+            bdb_Context.EditBlog(blogId, blog);
             return View("AllBlogs");
         }
     }

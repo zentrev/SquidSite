@@ -1,0 +1,45 @@
+﻿@using SquidSite.Models
+@model Blog
+@{
+    ViewData["Title"] = "BlogPost";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<div class="">
+    @if (Model != null)
+    {
+        <form method="post" action="~/Home/EditBlogPost">
+            <input class="" type="text" name="title" placeholder="Title" value="@Model.BlogTitle"><br />
+            <input type="number" name="UserId" value="@Model.BlogUser.ID" disabled hidden />
+            <input class="" type="text" name="BlogContent" placeholder="Text" value="@Model.BlogContent"><br />
+            <input class="" type="text" name="BlogDateEdited" placeholder="" disabled hidden value="@Model.BlogDateEdited"><br />
+            <input class="" type="text" name="BlogDatePosted" placeholder="" disabled hidden value="@Model.BlogDatePosted"><br />
+            <select name="BlogTag">
+                <option value="@Model.BlogTag" selected>@Model.BlogTag</option>
+                <option value="0">NONE</option>
+                <option value="1">UPDATE</option>
+                <option value="2">ANOUNCEMENT</option>
+                <option value="3">DEVBLOG</option>
+                <option value="4">PINNED</option>
+            </select>
+            <input class="" type="submit" />
+        </form>
+    }
+    else
+    { 
+        <form method="post" action="~/Home/WriteNewPost">
+            <input class="" type="text" name="title" placeholder="Title"><br />
+            <!-- <input type="number" name="UserId" value="1"  disabled hidden/> -->
+            <input class="" type="text" name="BlogContent" placeholder="Text"><br />
+            <select name="BlogTag">
+                <option value="0">NONE</option>
+                <option value="1">UPDATE</option>
+                <option value="2">ANOUNCEMENT</option>
+                <option value="3">DEVBLOG</option>
+                <option value="4">PINNED</option>
+            </select>
+            <input class="" type="submit" />
+        </form>
+    }
+
+</div>

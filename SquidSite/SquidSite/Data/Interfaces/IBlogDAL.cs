@@ -11,14 +11,19 @@ namespace SquidSite.Database.Interfaces
         IEnumerable<Blog> GetAll();
         IEnumerable<Blog> GetPinned();
         IEnumerable<Blog> Search(string Title);
-        IEnumerable<Blog> Search(int ID);
+        IEnumerable<Blog> Search(int BlogID);
         IEnumerable<Blog> Filter(Blog.eBlogTag tag);
 
-        bool AddBlog(Blog blog);
-        bool DeleteBlog(int Key);
+        bool AddBlog(Blog blog, int userId);
+        bool DeleteBlog(int BlogId);
         bool DeleteBlog(Blog blog);
-        bool EditBlog(int Key, Blog blog);
-        Blog GetBlog(int Key);
-        int GetKey(Blog blog);
+        bool EditBlog(int BlogId, Blog blog);
+        Blog GetBlog(int BlogId);
+
+        bool AddComment(Comment comment, int blogId, int userId);
+        bool DeleteComment(int CommentId);
+        bool DeleteComment(Comment comment);
+        bool EditComment(int CommentId, Comment comment);
+        Comment GetComment(int CommentId);
     }
 }

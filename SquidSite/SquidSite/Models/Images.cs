@@ -7,7 +7,7 @@ namespace SquidSite.Models
 {
     public class ProdutImage
     {
-        public int ProductImageID { get; set; }
+        public int ProdutImageID { get; set; }
         public string ImageURL { get; set; }
         public Product Product { get; set; }
     }

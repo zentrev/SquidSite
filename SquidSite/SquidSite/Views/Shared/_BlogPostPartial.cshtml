@@ -2,33 +2,46 @@
 @model Blog
 
 <div class="BlogBox">
-    <div class="BlogTitle">@Model.Title</div>
-    <div class="BlogContent">
-        <p>@Model.Text</p>
-    </div>
-    <div class="BlogEditedDate">
-        @Model.DateEdited
-    </div>
-    <div class="BlogPostedDate">
-        @Model.DatePosted
-    </div>
-    <div>
-        @*@if (Model.comments != null)
-        {
-        @foreach (Comment c in Model.comments)
-        {
-        <div>
-            @c.Text;
+    @if (Model != null)
+    {
+        <div class="BlogTitle">@Model.BlogTitle</div>
+        <div class="BlogContent">
+            <p>@Model.BlogContent</p>
         </div>
-        }*@
-        }
-    </div>
-    <div>
-        <form method="post" action="~/Blog/AddComment">
-            <input type="number" name="BlogId" value="@Model.BlogId"  disabled hidden/>
-            <input class="" type="text" name="Text" placeholder="Write Comment here"><br />
-            <input class="" type="text" name="DateEdited" placeholder="" disabled hidden><br />
-            <input class="" type="submit" value="New Comment" />
-        </form>
-    </div>
+        <div class="BlogEditedDate">
+            @Model.BlogDateEdited
+        </div>
+        <div class="BlogPostedDate">
+            @Model.BlogDatePosted
+        </div>
+        <div>
+            @if (Model.BlogComments != null)
+            {
+                @foreach (Comment c in Model.BlogComments)
+                {
+                    <div>
+                        @c.CommentUser.userName
+                        @c.CommentDateEdited
+                        @c.CommentText
+                    </div>
+                }
+            }
+        </div>
+        <div>
+            <a asp-action="EditBlogPost" asp-controller="Home" asp-blogId="@Model.BlogId">Edit Blog Post</a>
+        </div>
+        <div>
+            <form method="post" action="~/Blog/AddComment">
+                <input type="number" name="BlogId" value="@Model.BlogId" disabled hidden />
+                <!-- <input type="number" name="UserId" value="1"  disabled hidden/> -->
+                <input class="" type="text" name="CommentText" placeholder="Write Comment here"><br />
+                <input class="" type="submit" value="New Comment" />
+            </form>
+        </div>
+
+    }
+    else
+    {
+        <div class="critical">Invalid Blog</div>
+    }
 </div>
