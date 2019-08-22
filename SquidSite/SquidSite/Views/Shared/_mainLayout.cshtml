@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/Style/Main.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Quicksand&display=swap" rel="stylesheet">
-    @RenderSection("ExtraHeadStuff", false)
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -18,8 +17,10 @@
     </nav>
     <div>
         @RenderBody()
+        @RenderSection("stripe", false)
     </div>
 
     <footer>Footer</footer>
 </body>
+    @RenderSection("ExtraHeadStuff", false)
 </html>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SquidSite.Models;
 
 namespace SquidSite.Controllers
 {
@@ -14,9 +15,9 @@ namespace SquidSite.Controllers
         }
 
         [Route("/Shop/ItemInfoPage")]
-        public IActionResult ItemInfoPage()
+        public IActionResult ItemInfoPage(Product item)
         {
-            return View();
+            return View(item);
         }
     }
 }

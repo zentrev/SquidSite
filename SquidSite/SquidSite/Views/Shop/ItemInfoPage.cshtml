@@ -1,43 +1,52 @@
 ﻿@using SquidSite.Models
-@model List<Product>
+@model Product
 
 
 @{
     Layout = "_mainLayout";
 
-    List<Merchandise> merch = new List<Merchandise>();
-    List<Game> games = new List<Game>();
+    //List<Merchandise> merch = new List<Merchandise>();
+    //List<Game> games = new List<Game>();
 
-    if (Model != null)
-    {
-        if (Model.Count > 0)
-        {
-            for (int i = 0; i < Model.Count; i++)
-            {
-                if (Model[i].GetType() == typeof(Merchandise))
-                {
-                    Merchandise merchandise = (Merchandise)Model[i];
-                    merch.Add(merchandise);
-                }
-                else if (Model[i].GetType() == typeof(Game))
-                {
-                    Game game = (Game)Model[i];
-                    games.Add(game);
-                }
-            }
-        }
-    }
+    //if (Model != null)
+    //{
+    //    if (Model.Count > 0)
+    //    {
+    //        for (int i = 0; i < Model.Count; i++)
+    //        {
+    //            if (Model[i].GetType() == typeof(Merchandise))
+    //            {
+    //                Merchandise merchandise = (Merchandise)Model[i];
+    //                merch.Add(merchandise);
+    //            }
+    //            else if (Model[i].GetType() == typeof(Game))
+    //            {
+    //                Game game = (Game)Model[i];
+    //                games.Add(game);
+    //            }
+    //        }
+    //    }
+    //}
 }
 
 @section ExtraHeadStuff{
     <script src="~/Javascript/ScrollingGallery.js"></script>
     <link href="~/Style/SlideShow.css" rel="stylesheet" />
+    <link href="~/Style/ItemInfoPage.css" rel="stylesheet" />
 }
 
 <div id="MainProductContainer">
-    <div id="Product Images">
-        <div id="SideImagesBar">
-
+    <div id="ProductImages">
+        <div id="inlineBlockBoi">
+            <div class="w3-col s4" >
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Images/RetroGame.jpg" style="width:200px;height:200px;cursor:pointer" onclick="currentSlide(1)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Images/ManOfTruth.jpg" style="width:200px;height:200px;cursor:pointer" onclick="currentSlide(2)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Images/Cat.jpg" style="width:200px;height:200px;cursor:pointer" onclick="currentSlide(3)">
+            </div>
         </div>
         <div id="Scrolling Images">
             <!-- Slideshow container -->
@@ -46,19 +55,19 @@
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
-                    <img src="~/Images/squidbootlogo.png" style="width:100%">
+                    <img src="~/Images/RetroGame.jpg" style="width:100%">
                     <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
-                    <img src="~/Images/squidbootlogo.png" style="width:100%">
+                    <img src="~/Images/ManOfTruth.jpg" style="width:100%">
                     <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
-                    <img src="~/Images/squidbootlogo.png" style="width:100%">
+                    <img src="~/Images/Cat.jpg" style="width:100%">
                     <div class="text">Caption Three</div>
                 </div>
 
@@ -76,7 +85,7 @@
             </div>
         </div>
     </div>
-    <div id="Product Information">
+    <div id="ProductInformation">
         <!--Display all product information here, size selector if product is of Merch, cost, title etc.-->
     </div>
 </div>

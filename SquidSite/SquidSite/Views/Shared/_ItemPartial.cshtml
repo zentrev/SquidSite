@@ -1,0 +1,14 @@
+﻿@using SquidSite.Models
+@model Product
+
+    <a asp-action="ItemInfoPage" asp-controller="Shop" asp-route-item="@Model">
+        <div class="ItemPartialBox">
+            <h3>@Model.Title</h3>
+            <div class="ItemInnerPartialBox">
+                <img src="~/Images/@(Model.ImageURLS[0])" />
+                <div class="BottomRight">
+                    <p>@Model.Cost</p>
+                </div>
+            </div>
+        </div>
+    </a>
