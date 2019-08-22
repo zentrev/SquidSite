@@ -52,15 +52,13 @@ nav{
 .float{
     float: right;
 }
-
+.critical{
+    background-color: darkred;
+}
 /* ------   Admin -------*/
-
 /* ------   Users -------*/
-
 /* ------   Shop -------*/
-
 /* ------  Stripe ------*/
-
 .StripeElement {
     box-sizing: border-box;
     height: 40px;

@@ -12,12 +12,12 @@
         <input type="text" name="SearchTitle" placeholder="Search"/><input type="submit" value="Search" />
     </form>
 </div>
-
+<a asp-action="WriteNewPost" asp-controller="Home">New Blog Post</a>
 <div>
     Pinned Blogs
     @foreach (Blog bpost in Model)
     {
-         @if (bpost.Tag == Blog.eBlogTag.PINNED)
+         @if (bpost.BlogTag == Blog.eBlogTag.PINNED)
          {
             <partial name="_BlogPostPartial" model="@bpost" />
          }

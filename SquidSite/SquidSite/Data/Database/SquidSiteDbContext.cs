@@ -17,5 +17,22 @@ namespace SquidSite.Data.Database
 
         public SquidSiteDbContext(DbContextOptions<SquidSiteDbContext> options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            modelBuilder.Entity<Blog>()
+                .HasMany(c => c.BlogComments)
+                .WithOne(e => e.CommentBlog)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Blog>()
+                .HasOne(e => e.BlogUser)
+                .WithMany(c => c.UserBlogs);
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(e => e.CommentUser)
+                .WithMany(c => c.UserComments);
+        }
     }
+    
 }

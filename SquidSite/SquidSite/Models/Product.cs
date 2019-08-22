@@ -7,10 +7,10 @@ namespace SquidSite.Models
 {
     public class Product
     {
-        public int ProductId { get; set; }
+        public int ProductID { get; set; }
         public string Title { get; set; }
         public float Cost { get; set; }
         public string Description { get; set; }
-        public List<string> ImageURLS { get; set; }
+        public List<ProdutImage> ImageURLS { get; set; }
     }
 }

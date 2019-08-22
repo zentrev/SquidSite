@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SquidSite.Data.Database;
 using SquidSite.Database.Interfaces;
@@ -13,11 +15,19 @@ namespace SquidSite
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; set; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SquidSiteDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AWS Connection")));
+            services.AddTransient(typeof(IBlogDAL), typeof(BlogDBContext));
             services.AddMvc();
-            services.AddTransient(typeof(IBlogDAL), typeof(MockBlogDB));
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -38,7 +48,7 @@ namespace SquidSite
                 routes.MapRoute(
                     name: "Blog",
                     template: "/Blog",
-                    defaults: new { controller = "Home", action = "Blog" }
+                    defaults: new { controller = "Blog", action = "AllBlogs" }
                     );
 
                 routes.MapRoute(
@@ -63,6 +73,12 @@ namespace SquidSite
                     name: "login",
                     template: "/Login",
                     defaults: new { controller = "User", action = "Login" }
+                    );
+
+                routes.MapRoute(
+                    name: "catch",
+                    template: "{*url}",
+                    defaults: new { controller = "Home", action = "Index" }
                     );
             });
 

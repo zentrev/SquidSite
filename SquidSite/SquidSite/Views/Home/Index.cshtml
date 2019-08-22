@@ -6,15 +6,35 @@
     <img src="~/Images/SquidbootLogo.png" />
 </div>
 <div id="scrollingGallery">
-    <div id="scrollingButtons">
-        <div id="leftButton" /> <!--This is the button to make the gallery go to the previous image (the left image)-->
-        <div id="rightButton" /> <!--This is the button to make the gallery go to the next image (the right image)-->
-    </div>
-    <div id="gameImages">
-        <!--Put loop for all images in the scrollboi-->
+    <div class="w3-content">
+        <img class="mySlides" src="~/Images/RetroGame.jpg" style="width:500px;height:500px;display:none">
+        <img class="mySlides" src="~/Images/ManOfTruth.jpg" style="width:500px;height:500px;">
+        <img class="mySlides" src="~/Images/Cat.jpg" style="width:500px;height:500px;display:none">
+
+        <div class="inlineBoi">
+            <div class="w3-col s4" style="margin-left: 400px">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Images/RetroGame.jpg" style="width:200px;height:200px;cursor:pointer" onclick="currentDiv(1)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Images/ManOfTruth.jpg" style="width:200px;height:200px;cursor:pointer" onclick="currentDiv(2)">
+            </div>
+            <div class="w3-col s4" style="margin-right: 400px">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Images/Cat.jpg" style="width:200px;height:200px;cursor:pointer" onclick="currentDiv(3)">
+            </div>
+        </div>
     </div>
 </div>
 <div id="ButtonBros">
-    <div id="shopButton" /> <!--This button on click will take the user to the shop page-->
-    <div id="blogButton" /> <!--This button on click will take the user to the blog page-->
+    <div id="shopButton">
+        <a asp-action="Index" asp-controller="Shop">Shop</a>
+    </div>
+    <div id="blogButton">
+        <a asp-action="AllBlogs" asp-controller="Blog">Blog</a>
+    </div>
 </div>
+
+@section ExtraHeadStuff
+{
+    <script src="~/Javascript/GalleryImagesBottom.js"></script>
+    <link href="~/Style/MainIndexGallery.css" rel="stylesheet" />
+}

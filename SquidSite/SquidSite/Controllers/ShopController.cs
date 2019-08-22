@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
+using SquidSite.Models;
 
 namespace SquidSite.Controllers
 {
@@ -16,9 +17,9 @@ namespace SquidSite.Controllers
         }
 
         [Route("/Shop/ItemInfoPage")]
-        public IActionResult ItemInfoPage()
+        public IActionResult ItemInfoPage(Product item)
         {
-            return View();
+            return View(item);
         }
 
         [HttpGet]
