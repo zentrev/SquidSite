@@ -1,6 +1,7 @@
 ﻿@using SquidSite.Models
 @model List<Product>
 
+
     @*<<<<<<< HEAD*@
     @*<div id="MainShopContainer">*@
     <!--Make containers inline (left and right)-->
@@ -58,12 +59,12 @@
                     @*<<<<<<< HEAD*@
                     @*</div>*@
 
-                                }
+                }
                     @*>>>>>>> 1cbf26606785ee3c63da2987cad58341490c8dd1*@
             </div>
 
         </div>
-        @section stripe{
+        @section Stripe{
             <script src="https://js.stripe.com/v3/"></script>
 
             <script>
@@ -140,7 +141,7 @@
             </script>
         }
 
-        <form action="/charge" method="post" id="payment-form">
+        <form action="~/Shop/CreateCharge" method="post" id="stripeToken">
             <div class="form-row">
                 <label for="card-element">
                     Credit or debit card
