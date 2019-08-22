@@ -8,9 +8,9 @@ namespace SquidSite.Models
     public class Comment
     {
         public int CommentId;
-        public Blog Blog;
-        public User User;
-        public DateTime DateEdited;
-        public string Text;
+        public Blog CommentBlog;
+        public User CommentUser;
+        public DateTime CommentDateEdited;
+        public string CommentText;
     }
 }

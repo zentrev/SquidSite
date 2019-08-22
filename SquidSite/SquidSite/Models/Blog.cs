@@ -17,12 +17,12 @@ namespace SquidSite.Models
             PINNED      = 1 << 4,
         }
         public int BlogId;
-        public User User;
-        public string Title;
-        public DateTime DatePosted;
-        public DateTime DateEdited;
-        public string Text;
-        public eBlogTag Tag;
+        public User BlogUser;
+        public string BlogTitle;
+        public DateTime BlogDatePosted;
+        public DateTime BlogDateEdited;
+        public string BlogContent;
+        public eBlogTag BlogTag;
         public List<BlogComment> BlogComments;
     }
 }
