@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SquidSite.Data.Database;
 
 namespace SquidSite.Migrations
 {
     [DbContext(typeof(SquidSiteDbContext))]
-    partial class SquidSiteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190827211022_BlogUpdates")]
+    partial class BlogUpdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
