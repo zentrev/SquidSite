@@ -5,13 +5,6 @@ using System.Threading.Tasks;
 
 namespace SquidSite.Models
 {
-    public class UserGame
-    {
-        public int UserID;
-        public User User;
-        public int GameID;
-        public Product Game;
-    }
     public class ProductImages
     {
         public int ProductImagesID { get; set; }
