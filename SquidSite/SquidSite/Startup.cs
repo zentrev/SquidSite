@@ -52,6 +52,24 @@ namespace SquidSite
                     );
 
                 routes.MapRoute(
+                    name: "NewBlogPost",
+                    template: "/NewBlogPost",
+                    defaults: new { controller = "Blog", action = "WriteNewPost" }
+                    );
+
+                routes.MapRoute(
+                    name: "WriteNewPost",
+                    template: "/WriteNewPost",
+                    defaults: new { controller = "Blog", action = "WriteNewPost" }
+                    );
+
+                routes.MapRoute(
+                    name: "EditBlogPost",
+                    template: "/EditBlogPost/{id?}",
+                    defaults: new { controller = "Blog", action = "EditBlogPost" }
+                    );
+
+                routes.MapRoute(
                     name: "Shop",
                     template: "/Shop",
                     defaults: new { controller = "Shop", action = "Index" }
@@ -75,11 +93,11 @@ namespace SquidSite
                     defaults: new { controller = "User", action = "Login" }
                     );
 
-                routes.MapRoute(
-                    name: "catch",
-                    template: "{*url}",
-                    defaults: new { controller = "Home", action = "Index" }
-                    );
+                //routes.MapRoute(
+                //    name: "catch",
+                //    template: "{*url}",
+                //    defaults: new { controller = "Home", action = "Index" }
+                //    );
             });
 
         }

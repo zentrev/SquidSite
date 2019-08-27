@@ -47,7 +47,7 @@ namespace SquidSite.Controllers
         public IActionResult WriteNewPost(Blog blog)
         {
             // int userId = int.Parse(Request.Form["UserId"]);
-
+            blog.BlogComments = new List<Comment>();
             blog.BlogDatePosted = DateTime.Now;
             blog.BlogDateEdited = DateTime.Now;
             bdb_Context.AddBlog(blog, 1); //User id is default for now

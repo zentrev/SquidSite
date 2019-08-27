@@ -8,11 +8,11 @@
 <h2>Blog Page</h2>
 
 <div>
-    <form method="post" action="~/Home/SearchBlogPost">
+    <form method="post" action="~/Blog/SearchBlogPost">
         <input type="text" name="SearchTitle" placeholder="Search"/><input type="submit" value="Search" />
     </form>
 </div>
-<a asp-action="WriteNewPost" asp-controller="Home">New Blog Post</a>
+<a asp-action="WriteNewPost" asp-controller="Blog">New Blog Post</a>
 
 @if (Model != null)
 {

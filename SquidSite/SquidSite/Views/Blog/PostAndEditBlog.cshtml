@@ -8,13 +8,13 @@
 <div class="">
     @if (Model != null)
     {
-        <form method="post" action="~/Home/EditBlogPost">
-            <input class="" type="text" name="title" placeholder="Title" value="@Model.BlogTitle"><br />
+        <form method="post" asp-action="/EditBlogPost" asp-controller="Blog">
+            <input class="" type="text" name="BlogTitle" placeholder="Title" value="@Model.BlogTitle"><br />
             <input type="number" name="UserId" value="@Model.BlogUser.ID" disabled hidden />
             <input class="" type="text" name="BlogContent" placeholder="Text" value="@Model.BlogContent"><br />
             <input class="" type="text" name="BlogDateEdited" placeholder="" disabled hidden value="@Model.BlogDateEdited"><br />
             <input class="" type="text" name="BlogDatePosted" placeholder="" disabled hidden value="@Model.BlogDatePosted"><br />
-            <select name="BlogTag">
+            <select name="BlogTag" >
                 <option value="@Model.BlogTag" selected>@Model.BlogTag</option>
                 <option value="0">NONE</option>
                 <option value="1">UPDATE</option>
@@ -27,8 +27,8 @@
     }
     else
     { 
-        <form method="post" action="~/Home/WriteNewPost">
-            <input class="" type="text" name="title" placeholder="Title"><br />
+        <form method="post" asp-action="/WriteNewPost"  asp-controller="Blog">
+            <input class="" type="text" name="BlogTitle" placeholder="Title"><br />
             <!-- <input type="number" name="UserId" value="1"  disabled hidden/> -->
             <input class="" type="text" name="BlogContent" placeholder="Text"><br />
             <select name="BlogTag">
