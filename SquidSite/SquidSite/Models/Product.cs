@@ -8,6 +8,7 @@ namespace SquidSite.Models
     public class Product
     {
         public int ProductID { get; set; }
+        public string ProductType { get; set; }
         public string Title { get; set; }
         public float Cost { get; set; }
         public string Description { get; set; }
