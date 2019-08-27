@@ -64,7 +64,7 @@ namespace SquidSite.Controllers
         {
             blog.BlogDateEdited = DateTime.Now;
             int blogId = int.Parse(Request.Form["BlogID"]);
-            //blog.BlogComments = bdb_Context.GetBlog(blogId).BlogComments; //Is this needed? I dont know how it will connect in the database
+          //  blog.BlogComments = bdb_Context.GetBlog(blogId).BlogComments; //Is this needed? I dont know how it will connect in the database
             bdb_Context.EditBlog(blogId, blog);
             return View("AllBlogs");
         }

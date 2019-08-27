@@ -12,40 +12,28 @@ namespace SquidSite.Data.Database
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Game> Games { get; set; }
-        public DbSet<Merchandise> Merchandise { get; set; }
-
-        //----Links----
-        public DbSet<UserBlog> UserBlogs { get; set; }
-        public DbSet<UserComment> UserComments { get; set; }
-        public DbSet<BlogComment> BlogComments { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<UserGame> UserGame { get; set; }
+        public DbSet<ProductImages> ProductImage { get; set; }
 
         public SquidSiteDbContext(DbContextOptions<SquidSiteDbContext> options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            modelBuilder.Entity<Blog>()
+                .HasMany(c => c.BlogComments)
+                .WithOne(e => e.CommentBlog)
+                .OnDelete(DeleteBehavior.Cascade);
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<UserBlog>()
-        //        .HasKey(ub => new { ub.UserId, ub.BlogId });
-        //    modelBuilder.Entity<UserBlog>()
-        //        .HasOne(ub => ub.User)
-        //        .WithMany(b => b.UserBlogs)
-        //        .HasForeignKey(bc => bc.BlogId);
+            modelBuilder.Entity<Blog>()
+                .HasOne(e => e.BlogUser)
+                .WithMany(c => c.UserBlogs);
 
-        //    modelBuilder.Entity<UserComment>()
-        //        .HasKey(uc => new { uc.UserId, uc.CommentId });
-        //    modelBuilder.Entity<UserComment>()
-        //        .HasOne(ub => ub.User)
-        //        .WithMany(c => c.UserComments)
-        //        .HasForeignKey(cb => cb.CommentId);
-
-
-        //    modelBuilder.Entity<BlogComment>()
-        //        .HasKey(bc => new { bc.BlogId, bc.CommentId });
-        //    modelBuilder.Entity<BlogComment>()
-        //        .HasOne(bc => bc.Blog)
-        //        .WithMany(c => c.BlogComments)
-        //        .HasForeignKey(cb => cb.CommentId);
-        //}
+            modelBuilder.Entity<Comment>()
+                .HasOne(e => e.CommentUser)
+                .WithMany(c => c.UserComments);
+        }
     }
+    
 }

@@ -1,0 +1,17 @@
+﻿body {
+}
+
+#ProductImages
+{
+    display: inline-flex;
+}
+
+#InlineBlockBoi
+{
+    display: inline-block;
+}
+
+#MainProductContainer
+{
+    display: inline-flex;
+}

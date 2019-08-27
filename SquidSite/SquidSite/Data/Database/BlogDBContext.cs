@@ -21,37 +21,32 @@ namespace SquidSite.Data.Database
         #region blogFunctions
         public IEnumerable<Blog> GetPinned()
         {
-            return _context.Blogs.Include("BlogComments.Comment").Include("UserBlog.User").Where(b => b.BlogTag == Blog.eBlogTag.PINNED);
+            return _context.Blogs.Include("BlogComments").Include("UserBlog").Where(b => b.BlogTag == Blog.eBlogTag.PINNED);
         }
         public IEnumerable<Blog> Search(string Title)
         {
-            return _context.Blogs.Include("BlogComments.Comment").Include("UserBlog.User").Where(b => b.BlogTitle.Contains(Title));
+            return _context.Blogs.Include("BlogComments").Include("UserBlog").Where(b => b.BlogTitle.Contains(Title));
         }
         public IEnumerable<Blog> Search(int BlogID)
         {
-            return _context.Blogs.Include("BlogComments.Comment").Include("UserBlog.User").Where(b => b.BlogId == BlogID);
+            return _context.Blogs.Include("BlogComments").Include("UserBlog").Where(b => b.BlogId == BlogID);
         }
         public IEnumerable<Blog> Filter(Blog.eBlogTag tag)
         {
-            return _context.Blogs.Include("BlogComments.Comment").Include("UserBlog.User").Where(b => b.BlogTag == tag);
+            return _context.Blogs.Include("BlogComments").Include("UserBlog").Where(b => b.BlogTag == tag);
         }
         public IEnumerable<Blog> GetAll()
         {
-            return _context.Blogs.Include("BlogComments.Comment").Include("UserBlog.User");
+            return _context.Blogs.Include("BlogComments").Include("UserBlog");
         }
 
         public bool AddBlog(Blog blog, int userId)
         {
             if (_context.Users.Find(userId) != null)
             {
-                UserBlog ub = new UserBlog
-                {
-                    Blog = blog,
-                    User = _context.Users.First(u => u.ID == userId),
-                    UserId = userId,
-                };
+                blog.BlogUser = _context.Users.Find(userId);
 
-                _context.Add(ub);
+                _context.Add(blog);
                 _context.SaveChanges();
                 return true;
             } else
@@ -102,7 +97,7 @@ namespace SquidSite.Data.Database
         }
         public Blog GetBlog(int BlogId)
         {
-            return _context.Blogs.Include("BlogComments.Comment").Include("UserBlog.User").First(b => b.BlogId == BlogId);
+            return _context.Blogs.Include("BlogComments").Include("BlogUser").First(b => b.BlogId == BlogId);
         }
         #endregion
 
@@ -112,22 +107,14 @@ namespace SquidSite.Data.Database
         {
             if (_context.Users.Find(userId) != null && _context.Blogs.Find(blogId) != null)
             {
-                UserComment uc = new UserComment
-                {
-                    Comment = comment,
-                    User = _context.Users.First(u => u.ID == userId),
-                    UserId = userId,
-                };
 
-                BlogComment bc = new BlogComment
-                {
-                    Comment = comment,
-                    Blog = _context.Blogs.First(b => b.BlogId == blogId),
-                    BlogId = blogId,
-                };
+                comment.CommentUser = _context.Users.First(u => u.ID == userId);
+                comment.CommentBlog = _context.Blogs.First(b => b.BlogId == blogId);
 
-                _context.Add(uc);
-                _context.Add(bc);
+                 _context.Add(comment);
+                _context.Users.First(u => u.ID == userId).UserComments.Add(comment);
+                _context.Blogs.First(b => b.BlogId == blogId).BlogComments.Add(comment);
+
                 _context.SaveChanges();
                 return true;
             } else
@@ -137,7 +124,7 @@ namespace SquidSite.Data.Database
         }
         public Comment GetComment(int CommentId)
         {
-            return _context.Comments.Include("BlogComments.Blog").Include("UserComment.User").First(c => c.CommentId == CommentId);
+            return _context.Comments.Include("CommentBlog").Include("CommentUser").First(c => c.CommentId == CommentId);
         }
         public bool DeleteComment(int CommentId)
         {
