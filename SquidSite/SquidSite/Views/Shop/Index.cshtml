@@ -3,6 +3,22 @@
 
 @{
     Layout = "_mainLayout";
+
+    List<Product> merch = new List<Product>();
+    List<Product> games = new List<Product>();
+
+    foreach(Product pro in Model)
+    {
+        if(pro.ProductType == Product.eProductType.GAME)
+        {
+            games.Add(pro);
+        }
+        else
+        {
+            merch.Add(pro);
+        }
+    }
+
 }
 
 <div id="MainShopContainer">
@@ -16,24 +32,24 @@
         </div>
     </div>
     <div id="ActiveTab">
-        <div id="Merch">
+        <div id="MerchItems">
             @if (Model != null)
             {
                 <!--Foreach Merch, make a little nice display with image, title and cost-->
-                @foreach (Product merch in Model)
+                @foreach (Product mer in merch)
                 {
-                    <partial name="ItemPartial" model="merch" />
+                    <partial name="_ItemPartial" model="mer" />
                 }
             }
         </div>
-        <div id="Games">
+        <div id="GamesItems">
             <!--Foreach game, make a little nice display with image, title and cost-->
             @if (Model != null)
             {
                 <!--Foreach game, make a little nice display with image, title and cost-->
-                @foreach (Product game in Model)
+                @foreach (Product gam in games)
                 {
-                    <partial name="ItemPartial" model="game" />
+                    <partial name="_ItemPartial" model="gam" />
                 }
             }
         </div>
