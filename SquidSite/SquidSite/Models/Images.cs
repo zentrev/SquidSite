@@ -9,6 +9,5 @@ namespace SquidSite.Models
     {
         public int ProdutImageID { get; set; }
         public string ImageURL { get; set; }
-        public Product Product { get; set; }
     }
 }
