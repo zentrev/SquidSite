@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SquidSite.Data.Database;
 using SquidSite.Database.Interfaces;
+using SquidSite.Data.Interfaces;
 
 namespace SquidSite
 {
@@ -27,7 +28,7 @@ namespace SquidSite
             services.AddDbContext<SquidSiteDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AWS Connection")));
             services.AddTransient(typeof(IBlogDAL), typeof(BlogDBContext));
-            services.AddTransient(typeof(IBlogDAL), typeof(UserDBContext));
+            services.AddTransient(typeof(IUserDAL), typeof(UserDBContext));
             services.AddMvc();
         }
 
