@@ -19,7 +19,24 @@ namespace SquidSite.Controllers
         [Route("/Shop/ItemInfoPage")]
         public IActionResult ItemInfoPage(SquidSite.Models.Product item)
         {
-            return View(item);
+            Stripe.Product.
+
+            if (item != null)
+            {
+                Merchandise merch = (Merchandise)item;
+                if (merch != null)
+                {
+                    return View(merch);
+                }
+                else
+                {
+                    return View((Game)item);
+                }
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         [Route("/Shop/Checkout")]
