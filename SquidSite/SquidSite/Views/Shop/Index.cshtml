@@ -1,161 +1,41 @@
 ﻿@using SquidSite.Models
 @model List<Product>
 
-    @{
-        Layout = "_mainLayout";
-    }
-
-    <div id="MainShopContainer">
-        <!--Make containers inline (left and right)-->
-        <div id="tabBois">
-            <div id="MerchShopButton">
-                <h3>MERCH</h3>
-            </div>
-            <div id="GameShopButton">
-                <h3>GAMES</h3>
-            </div>
-        </div>
-        <div id="ActiveTab">
-            <div id="Merch">
-                @if (Model != null)
-                {
-                    <!--Foreach Merch, make a little nice display with image, title and cost-->
-                    @foreach (Merchandise merch in Model)
-                    {
-                        <partial name="ItemPartial" model="merch" />
-                    }
-                }
-            </div>
-            <div id="Games">
-                <!--Foreach game, make a little nice display with image, title and cost-->
-                @if (Model != null)
-                {
-                    <!--Foreach game, make a little nice display with image, title and cost-->
-                    @foreach (Game game in Model)
-                    {
-                        <!--Foreach game, make a little nice display with image, title and cost-->
-                        @foreach (Game game in Model)
-                        {
-                            <partial name="ItemPartial" model="game" />
-                        }
-
-                    }
-                </div>
-            </div>
-        </div>
-        @section Stripe{
-            <script src="https://js.stripe.com/v3/"></script>
-
-            <script>
-                // Create a Stripe client.
-                var stripe = Stripe('pk_test_w61nIQ5WT9DZcYHicO8jo9Zw00kN748p5n');
-
-                // Create an instance of Elements.
-                var elements = stripe.elements();
-
-                // Custom styling can be passed to options when creating an Element.
-                // (Note that this demo uses a wider set of styles than the guide below.)
-                var style = {
-                    base: {
-                        color: '#32325d',
-                        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                        fontSmoothing: 'antialiased',
-                        fontSize: '16px',
-                        '::placeholder': {
-                            color: '#aab7c4'
-                        }
-                    },
-                    invalid: {
-                        color: '#fa755a',
-                        iconColor: '#fa755a'
-
-                    }
-                };
-
-                // Create an instance of the card Element.
-                var card = elements.create('card', { style: style });
-
-                // Add an instance of the card Element into the `card-element` <div>.
-                card.mount('#card-element');
-
-                // Handle real-time validation errors from the card Element.
-                card.addEventListener('change', function (event) {
-                    var displayError = document.getElementById('card-errors');
-                    if (event.error) {
-                        displayError.textContent = event.error.message;
-                    } else {
-                        displayError.textContent = '';
-                    }
-                });
-
-                // Handle form submission.
-                var form = document.getElementById('payment-form');
-                form.addEventListener('submit', function (event) {
-                    event.preventDefault();
-
-                    stripe.createToken(card).then(function (result) {
-                        if (result.error) {
-                            // Inform the user if there was an error.
-                            var errorElement = document.getElementById('card-errors');
-                            errorElement.textContent = result.error.message;
-                        } else {
-                            // Send the token to your server.
-                            stripeTokenHandler(result.token);
-                        }
-                    });
-                });
-
-                // Submit the form with the token ID.
-                function stripeTokenHandler(token) {
-                    // Insert the token ID into the form so it gets submitted to the server
-                    var form = document.getElementById('payment-form');
-                    var hiddenInput = document.createElement('input');
-                    hiddenInput.setAttribute('type', 'hidden');
-                    hiddenInput.setAttribute('name', 'stripeToken');
-                    hiddenInput.setAttribute('value', token.id);
-                    form.appendChild(hiddenInput);
-
-                    // Submit the form
-                    form.submit();
-                }
-            </script>
-        }
-
-        // Submit the form with the token ID.
-        function stripeTokenHandler(token)
-        {
-            // Insert the token ID into the form so it gets submitted to the server
-            var form = document.getElementById('payment-form');
-            var hiddenInput = document.createElement('input');
-            hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'stripeToken');
-            hiddenInput.setAttribute('value', token.id);
-            form.appendChild(hiddenInput);
-
-            // Submit the form
-            form.submit();
-        }
-    </ script >
+@{
+    Layout = "_mainLayout";
 }
 
-                <form action="~/Shop/CreateCharge" method="post" id="stripeToken">
-                    <div class="form-row">
-                        <label for="card-element">
-                            Credit or debit card
-                        </label>
-                        <div id="card-element">
-                            <!-- A Stripe Element will be inserted here. -->
-                        </div>
-
-                        <!-- Used to display form errors. -->
-                        <div id="card-errors" role="alert"></div>
-
-                    </div>
-
-                    <!-- Used to display form errors. -->
-                    <div id="card-errors" role="alert"></div>
-                    </div>
-
-                    <button>Submit Payment</button>
-                </form>
-                </div>
+<div id="MainShopContainer">
+    <!--Make containers inline (left and right)-->
+    <div id="tabBois">
+        <div id="MerchShopButton">
+            <h3>MERCH</h3>
+        </div>
+        <div id="GameShopButton">
+            <h3>GAMES</h3>
+        </div>
+    </div>
+    <div id="ActiveTab">
+        <div id="Merch">
+            @if (Model != null)
+            {
+                <!--Foreach Merch, make a little nice display with image, title and cost-->
+                @foreach (Merchandise merch in Model)
+                {
+                    <partial name="ItemPartial" model="merch" />
+                }
+            }
+        </div>
+        <div id="Games">
+            <!--Foreach game, make a little nice display with image, title and cost-->
+            @if (Model != null)
+            {
+                <!--Foreach game, make a little nice display with image, title and cost-->
+                @foreach (Game game in Model)
+                {
+                    <partial name="ItemPartial" model="game" />
+                }
+            }
+        </div>
+    </div>
+</div>

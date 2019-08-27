@@ -10,7 +10,7 @@ namespace SquidSite.Models
         public int UserID;
         public User User;
         public int GameID;
-        public Game Game;
+        public Product Game;
     }
     public class ProductImages
     {

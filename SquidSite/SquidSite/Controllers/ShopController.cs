@@ -17,7 +17,7 @@ namespace SquidSite.Controllers
         }
 
         [Route("/Shop/ItemInfoPage")]
-        public IActionResult ItemInfoPage(Product item)
+        public IActionResult ItemInfoPage(SquidSite.Models.Product item)
         {
             return View(item);
         }
