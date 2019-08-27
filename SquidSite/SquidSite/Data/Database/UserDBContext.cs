@@ -10,6 +10,7 @@ namespace SquidSite.Data.Database
     public class UserDBContext : IUserDAL
     {
         private readonly SquidSiteDbContext _context;
+
         public UserDBContext(SquidSiteDbContext context)
         {
             _context = context;
@@ -22,7 +23,7 @@ namespace SquidSite.Data.Database
             {
                 accepted = true;
             }
-
+            return accepted;
         }
 
         public bool DeleteUser(int Key)
