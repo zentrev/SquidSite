@@ -9,17 +9,16 @@
 </head>
 <body>
     <nav>
-        <a asp-action="Index" asp-controller="Home">Home</a>&emsp;
-        <br />
-        <a asp-action="Index" asp-controller="Shop">Shop</a>&emsp;
-        <br />
-        <a asp-action="ItemInfoPage" asp-controller="Shop">Item Info</a>&emsp;
+        <a class="inline" asp-action="Index" asp-controller="Home">Home</a>&emsp;
+        <a class="inline" asp-action="Index" asp-controller="Shop">Shop</a>&emsp;
+        <a class="inline" asp-action="ItemInfoPage" asp-controller="Shop">Item Info</a>&emsp;
+        <a class="inline" asp-action="AllBlogs" asp-controller="Blog">Blog</a>&emsp;
     </nav>
-    <div>
+    <div class="pageContent">
         @RenderBody()
     </div>
 
-    <footer>Footer</footer>
+    <footer>2019 &copy; SquidBoot Studios</footer>
 </body>
-    @RenderSection("ExtraHeadStuff", false)
+@RenderSection("ExtraHeadStuff", false)
 </html>
