@@ -20,7 +20,7 @@
             @if (Model != null)
             {
                 <!--Foreach Merch, make a little nice display with image, title and cost-->
-                @foreach (Merchandise merch in Model)
+                @foreach (Product merch in Model)
                 {
                     <partial name="ItemPartial" model="merch" />
                 }
@@ -31,7 +31,7 @@
             @if (Model != null)
             {
                 <!--Foreach game, make a little nice display with image, title and cost-->
-                @foreach (Game game in Model)
+                @foreach (Product game in Model)
                 {
                     <partial name="ItemPartial" model="game" />
                 }
