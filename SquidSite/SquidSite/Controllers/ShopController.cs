@@ -22,6 +22,12 @@ namespace SquidSite.Controllers
             return View(item);
         }
 
+        [Route("/Shop/Checkout")]
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult CreateCharge()
         {
