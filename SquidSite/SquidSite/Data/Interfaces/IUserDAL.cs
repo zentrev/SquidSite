@@ -6,7 +6,7 @@ using SquidSite.Models;
 
 namespace SquidSite.Data.Interfaces
 {
-    interface IUserDAL
+    public interface IUserDAL
     {
         IEnumerable<User> GetAll();
         IEnumerable<User> Search(string name);
