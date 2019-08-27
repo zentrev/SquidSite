@@ -6,8 +6,9 @@
     font-family: 'Quicksand', sans-serif;
     font-family: 'Josefin Sans', sans-serif;
 */
+html {
+    background-color: black;
 
-body {
     --squidboot-purple: #bb24e5;
     --squidboot-purple-shade: #9d23be;
     --squidboot-yellow: #e5d524;
@@ -20,28 +21,53 @@ body {
     --secondary-font-color: #808080;
     --body-font: 'Quicksand', sans-serif;
     --header-font: 'Josefin Sans', sans-serif;
-
-    background: var(--accent-color-2);
 }
-nav{
-    display: inline-flex;
-    height: 30px;
+body {
+    margin: 100px 0px;
+    background-color: #d7d7d7;
+    font-family: var(--body-font);
+}
+
+nav {
     background: var(--squidboot-purple);
     font-family: var(--header-font);
     color: var(--main-font-color);
     font-size: 24px;
+    text-align: center;
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    float: left;
 }
 
     nav a {
-        display: inline-flex;
-        height: 30px;
+        display: inline-block;
+        text-decoration: none;
+        height: 40px;
         width: 120px;
         background: var(--squidboot-purple);
-        font-family: var(--header-font);
         color: var(--main-font-color);
         font-size: 24px;
+        text-align: center;
+        font-weight: 600;
+        padding: 6px;
     }
+
+        nav a:hover {
+            background: var(--squidboot-teal);
+            padding: 12px;
+        }
+
+footer{
+    padding: 20px;
+    text-align: center;
+}
+
 /* ------   General -------*/
+.pageContent {
+    margin: 10px;
+    padding: 4px;
+}
 .icon {
     width: 50px;
     height: 50px;
@@ -55,6 +81,8 @@ nav{
 .critical{
     background-color: darkred;
 }
+
+
 /* ------   Admin -------*/
 /* ------   Users -------*/
 /* ------   Shop -------*/
@@ -76,8 +104,8 @@ nav{
     color: var(--secondary-font-color);
     font-size: 16px;
 }
-.BlogContent{
-
+.BlogContent {
+    color: var(--secondary-font-color);
 }
 .BlogCommentBox {
     margin: 2px;
@@ -85,10 +113,10 @@ nav{
     border: var(--accent-color-2);
 }
 .BlogCommentUsername {
-
+    color: var(--secondary-font-color);
 }
-.BlogCommentContent{
-
+.BlogCommentContent {
+    color: var(--secondary-font-color);
 }
 .BlogCommentEditedDate {
     color: var(--secondary-font-color);
