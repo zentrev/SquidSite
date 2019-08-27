@@ -13,6 +13,9 @@
     </form>
 </div>
 <a asp-action="WriteNewPost" asp-controller="Home">New Blog Post</a>
+
+@if (Model != null)
+{
 <div>
     Pinned Blogs
     @foreach (Blog bpost in Model)
@@ -21,14 +24,21 @@
          {
             <partial name="_BlogPostPartial" model="@bpost" />
          }
-     }
+    }
 </div>
 
 <div>
-    @foreach(Blog bpost in Model){
+    @foreach (Blog bpost in Model)
+    {
         <partial name="_BlogPostPartial" model="@bpost" />
     }
 </div>
+} else
+{
+    <div>
+        <h1>No Blogs Here</h1>
+    </div>
+}
 
 <div>
     Twitter API (if Included)

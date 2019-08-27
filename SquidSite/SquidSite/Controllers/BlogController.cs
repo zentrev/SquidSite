@@ -20,7 +20,7 @@ namespace SquidSite.Controllers
 
         public IActionResult AllBlogs()
         {
-            return View(bdb_Context.GetAll());
+            return View(bdb_Context.GetAll().ToList());
         }
 
         public IActionResult SearchBlogPost()
