@@ -13,4 +13,13 @@ namespace SquidSite.Models
         public int ProductImageID;
         public ProdutImage ProductImage;
     }
+
+    public class UserProduct
+    {
+        public int UserProductID { get; set; }
+        public int UserID { get; set; }
+        public User User { get; set; }
+        public int ProductID { get; set; }
+        public Product Product { get; set; }
+    }
 }
