@@ -47,11 +47,7 @@ namespace SquidSite
                     defaults: new { controller = "Home", action = "Index" }
                     );
 
-                routes.MapRoute(
-                    name: "Blog",
-                    template: "/Blog",
-                    defaults: new { controller = "Blog", action = "AllBlogs" }
-                    );
+
 
                 routes.MapRoute(
                     name: "NewBlogPost",
@@ -69,6 +65,18 @@ namespace SquidSite
                     name: "EditBlogPost",
                     template: "/EditBlogPost/{id?}",
                     defaults: new { controller = "Blog", action = "EditBlogPost" }
+                    );
+
+                routes.MapRoute(
+                    name: "AddComment",
+                    template: "/AddComment",
+                    defaults: new { controller = "Blog", action = "AddComment" }
+                    );
+
+                routes.MapRoute(
+                    name: "Blog",
+                    template: "/Blog",
+                    defaults: new { controller = "Blog", action = "AllBlogs" }
                     );
 
                 routes.MapRoute(
