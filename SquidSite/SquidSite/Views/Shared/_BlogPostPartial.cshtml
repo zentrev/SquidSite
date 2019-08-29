@@ -5,24 +5,32 @@
     @if (Model != null)
     {
         <div class="BlogTitle">@Model.BlogTitle</div>
-        <div class="BlogContent">
-            <p>@Model.BlogContent</p>
-        </div>
         <div class="BlogEditedDate">
             @Model.BlogDateEdited
         </div>
         <div class="BlogPostedDate">
             @Model.BlogDatePosted
         </div>
+        <div class="BlogContent">
+            <p>@Model.BlogContent</p>
+        </div>
+
         <div>
             @if (Model.BlogComments != null)
             {
                 @foreach (Comment c in Model.BlogComments)
                 {
-                    <div>
-                        @c.CommentUser.userName
-                        @c.CommentDateEdited
-                        @c.CommentText
+                    <div class="BlogCommentBox">
+                        <div class="BlogCommentUsername">
+                            @c.CommentUser.userName
+                        </div>
+                        <div class="BlogCommentEditedDate">
+
+                            @c.CommentDateEdited
+                        </div>
+                        <div class="BlogCommentContent">
+                            @c.CommentText
+                        </div>
                     </div>
                 }
             }
@@ -30,11 +38,11 @@
         <div>
             <a asp-action="EditBlogPost" asp-controller="Home" asp-blogId="@Model.BlogId">Edit Blog Post</a>
         </div>
-        <div>
-            <form method="post" action="~/Blog/AddComment">
+        <div class="">
+            <form method="post" asp-action="AddComment" asp-controller="Blog">
                 <input type="number" name="BlogId" value="@Model.BlogId" disabled hidden />
                 <!-- <input type="number" name="UserId" value="1"  disabled hidden/> -->
-                <input class="" type="text" name="CommentText" placeholder="Write Comment here"><br />
+                <input class="" type="text" name="CommentText" placeholder="Write Comment here">
                 <input class="" type="submit" value="New Comment" />
             </form>
         </div>

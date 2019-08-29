@@ -21,7 +21,7 @@ namespace SquidSite.Models
         public string email { get; set; }
         public string userName { get; set; }
         public string passwordHash { get; set; }
-        public List<Product> ownedGames { get; set; } = new List<Product>();
+        public List<UserProduct> ownedGames { get; set; } = new List<UserProduct>();
         public List<Blog> UserBlogs { get; set; }
         public List<Comment> UserComments { get; set; }
     }

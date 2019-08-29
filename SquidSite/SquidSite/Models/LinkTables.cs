@@ -5,13 +5,6 @@ using System.Threading.Tasks;
 
 namespace SquidSite.Models
 {
-    public class UserGame
-    {
-        public int UserID;
-        public User User;
-        public int GameID;
-        public Product Game;
-    }
     public class ProductImages
     {
         public int ProductImagesID { get; set; }
@@ -19,5 +12,14 @@ namespace SquidSite.Models
         public Product Product;
         public int ProductImageID;
         public ProdutImage ProductImage;
+    }
+
+    public class UserProduct
+    {
+        public int UserProductID { get; set; }
+        public int UserID { get; set; }
+        public User User { get; set; }
+        public int ProductID { get; set; }
+        public Product Product { get; set; }
     }
 }

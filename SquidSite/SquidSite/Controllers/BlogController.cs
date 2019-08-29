@@ -20,18 +20,18 @@ namespace SquidSite.Controllers
 
         public IActionResult AllBlogs()
         {
-            return View(bdb_Context.GetAll().ToList());
+            return View(bdb_Context.GetAll().Reverse().ToList());
         }
 
         public IActionResult SearchBlogPost()
         {
             string searchrequest = Request.Form["SearchTitle"];
-            return View("Blog", bdb_Context.Search(searchrequest).ToList());
+            return View("Blog", bdb_Context.Search(searchrequest).Reverse().ToList());
         }
 
         public IActionResult AddComment(Comment comment)
         {
-            int blogId = int.Parse(Request.Form["BlogID"]);
+            int blogId = int.Parse(Request.Form["BlogId"]);
            // int userId = int.Parse(Request.Form["UserId"]);
             comment.CommentDateEdited = DateTime.Now;
             bdb_Context.AddComment(comment, blogId, 1); //User id is default for now
@@ -47,7 +47,7 @@ namespace SquidSite.Controllers
         public IActionResult WriteNewPost(Blog blog)
         {
             // int userId = int.Parse(Request.Form["UserId"]);
-
+            blog.BlogComments = new List<Comment>();
             blog.BlogDatePosted = DateTime.Now;
             blog.BlogDateEdited = DateTime.Now;
             bdb_Context.AddBlog(blog, 1); //User id is default for now

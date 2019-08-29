@@ -95,6 +95,7 @@ footer{
     font-size: 12px;
     color: var(--main-font-color);
     background: var(--accent-color-1);
+    padding: 6px;
 }
 .BlogTitle{
     font-family: var(--header-font);
@@ -110,13 +111,15 @@ footer{
 .BlogCommentBox {
     margin: 2px;
     padding: 2px;
-    border: var(--accent-color-2);
+    border: var(--squidboot-teal);
+    background-color: var(--accent-color-1);
 }
 .BlogCommentUsername {
     color: var(--secondary-font-color);
 }
 .BlogCommentContent {
     color: var(--secondary-font-color);
+    font-size: 16px;
 }
 .BlogCommentEditedDate {
     color: var(--secondary-font-color);
@@ -127,4 +130,5 @@ footer{
     font-size: 10px;
 }
 .BlogPostedDate {
+
 }

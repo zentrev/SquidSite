@@ -4,6 +4,7 @@
 #ProductImages
 {
     display: inline-flex;
+    width: 1000px;
 }
 
 #InlineBlockBoi
@@ -14,4 +15,14 @@
 #MainProductContainer
 {
     display: inline-flex;
+}
+
+#ScrollingImages
+{
+    width: 600px;   
+}
+
+#ProductInformation
+{
+    display: inline-block;
 }

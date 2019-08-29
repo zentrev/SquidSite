@@ -75,18 +75,40 @@ namespace SquidSite.Migrations
 
                     b.Property<float>("Cost");
 
+                    b.Property<string>("DemoDownloadLink");
+
+                    b.Property<string>("DemoLink");
+
                     b.Property<string>("Description");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
+                    b.Property<string>("DownloadLink");
+
+                    b.Property<int>("MerchSize");
+
+                    b.Property<int>("MerchTags");
+
+                    b.Property<int>("ProductType");
 
                     b.Property<string>("Title");
 
+                    b.Property<int?>("UserID");
+
                     b.HasKey("ProductID");
 
-                    b.ToTable("Product");
+                    b.HasIndex("UserID");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Product");
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("SquidSite.Models.ProductImages", b =>
+                {
+                    b.Property<int>("ProductImagesID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("ProductImagesID");
+
+                    b.ToTable("ProductImage");
                 });
 
             modelBuilder.Entity("SquidSite.Models.ProdutImage", b =>
@@ -125,34 +147,6 @@ namespace SquidSite.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SquidSite.Models.Game", b =>
-                {
-                    b.HasBaseType("SquidSite.Models.Product");
-
-                    b.Property<string>("DownloadLink");
-
-                    b.Property<int?>("UserID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Game");
-
-                    b.HasDiscriminator().HasValue("Game");
-                });
-
-            modelBuilder.Entity("SquidSite.Models.Merchandise", b =>
-                {
-                    b.HasBaseType("SquidSite.Models.Product");
-
-                    b.Property<int>("MerchSize");
-
-                    b.Property<int>("MerchTags");
-
-                    b.ToTable("Merchandise");
-
-                    b.HasDiscriminator().HasValue("Merchandise");
-                });
-
             modelBuilder.Entity("SquidSite.Models.Blog", b =>
                 {
                     b.HasOne("SquidSite.Models.User", "BlogUser")
@@ -172,18 +166,18 @@ namespace SquidSite.Migrations
                         .HasForeignKey("CommentUserID");
                 });
 
-            modelBuilder.Entity("SquidSite.Models.ProdutImage", b =>
-                {
-                    b.HasOne("SquidSite.Models.Product", "Product")
-                        .WithMany("ImageURLS")
-                        .HasForeignKey("ProductID");
-                });
-
-            modelBuilder.Entity("SquidSite.Models.Game", b =>
+            modelBuilder.Entity("SquidSite.Models.Product", b =>
                 {
                     b.HasOne("SquidSite.Models.User")
                         .WithMany("ownedGames")
                         .HasForeignKey("UserID");
+                });
+
+            modelBuilder.Entity("SquidSite.Models.ProdutImage", b =>
+                {
+                    b.HasOne("SquidSite.Models.Product")
+                        .WithMany("ImageURLS")
+                        .HasForeignKey("ProductID");
                 });
 #pragma warning restore 612, 618
         }

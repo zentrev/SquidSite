@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SquidSite.Data.Database;
 using SquidSite.Database.Interfaces;
+using SquidSite.Data.Interfaces;
 
 namespace SquidSite
 {
@@ -27,6 +28,7 @@ namespace SquidSite
             services.AddDbContext<SquidSiteDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AWS Connection")));
             services.AddTransient(typeof(IBlogDAL), typeof(BlogDBContext));
+            services.AddTransient(typeof(IUserDAL), typeof(UserDBContext));
             services.AddMvc();
         }
 
@@ -43,6 +45,32 @@ namespace SquidSite
                     name: "default",
                     template: "",
                     defaults: new { controller = "Home", action = "Index" }
+                    );
+
+
+
+                routes.MapRoute(
+                    name: "NewBlogPost",
+                    template: "/NewBlogPost",
+                    defaults: new { controller = "Blog", action = "WriteNewPost" }
+                    );
+
+                routes.MapRoute(
+                    name: "WriteNewPost",
+                    template: "/WriteNewPost",
+                    defaults: new { controller = "Blog", action = "WriteNewPost" }
+                    );
+
+                routes.MapRoute(
+                    name: "EditBlogPost",
+                    template: "/EditBlogPost/{id?}",
+                    defaults: new { controller = "Blog", action = "EditBlogPost" }
+                    );
+
+                routes.MapRoute(
+                    name: "AddComment",
+                    template: "/AddComment",
+                    defaults: new { controller = "Blog", action = "AddComment" }
                     );
 
                 routes.MapRoute(
@@ -75,11 +103,11 @@ namespace SquidSite
                     defaults: new { controller = "User", action = "Login" }
                     );
 
-                routes.MapRoute(
-                    name: "catch",
-                    template: "{*url}",
-                    defaults: new { controller = "Home", action = "Index" }
-                    );
+                //routes.MapRoute(
+                //    name: "catch",
+                //    template: "{*url}",
+                //    defaults: new { controller = "Home", action = "Index" }
+                //    );
             });
 
         }
