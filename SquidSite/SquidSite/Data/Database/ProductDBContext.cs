@@ -37,12 +37,15 @@ namespace SquidSite.Data.Database
 
         public bool EditProduct(int Key, Product product)
         {
-            throw new NotImplementedException();
+            Product change = _context.Products.FirstOrDefault(p => p.ProductID == Key);
+            _context.Products.Update(change);
+            change = product;
+            _context.SaveChanges();
         }
 
         public IEnumerable<Product> GetAll()
         {
-            return _context.Products.Include(p => p.ImageURLS).ThenInclude(i=>i.ToList()).ToList();
+            return _context.Products.Include(p => p.ImageURLS).ThenInclude(i => i.ProductImage).ToList();
         }
 
         public Product GetProduct(int key)
