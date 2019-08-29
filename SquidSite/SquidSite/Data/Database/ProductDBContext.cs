@@ -42,7 +42,7 @@ namespace SquidSite.Data.Database
 
         public IEnumerable<Product> GetAll()
         {
-            return _context.Products.Include("ImageURLS.ProductImage").ToList();
+            return _context.Products.Include(p => p.ImageURLS).ThenInclude(i=>i.ToList()).ToList();
         }
 
         public Product GetProduct(int key)
