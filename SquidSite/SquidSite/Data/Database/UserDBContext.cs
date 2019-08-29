@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using SquidSite.Data.Interfaces;
 using SquidSite.Models;
+using SquidSite.DataEncryption;
 
 namespace SquidSite.Data.Database
 {
@@ -18,62 +19,85 @@ namespace SquidSite.Data.Database
 
         public bool AddUser(User user)
         {
-            bool accepted = false;
-            if (user != null)
+            if(_context.Users.FirstOrDefault(u => u.userName.Equals(user.userName, StringComparison.OrdinalIgnoreCase)) == null)
             {
-                accepted = true;
+                _context.Users.Add(user);
+                return true;
             }
-            return accepted;
+            return false;
         }
 
         public bool DeleteUser(int Key)
         {
-            throw new NotImplementedException();
+            if(_context.Users.First(u => u.ID == Key) != null)
+            {
+                _context.Users.Remove(_context.Users.First(u => u.ID == Key));
+                return true;
+            }
+            return false;
         }
 
-        public bool DeleteUser(User blog)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool EditUser(int key, User user)
         {
-            throw new NotImplementedException();
+            if(Search(key) != null)
+            {
+                User currentUser = Search(key);
+                _context.Update(currentUser);
+                currentUser = user;
+                _context.SaveChanges();
+
+                return true;
+            }
+            return false;
         }
 
         public IEnumerable<User> Filter(User.eUserType userType)
         {
-            throw new NotImplementedException();
+            return _context.Users.Where(u => u.userType == userType);
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Users.ToList();
         }
 
-        public int GetKey(User blog)
-        {
-            throw new NotImplementedException();
-        }
+        //public bool DeleteUser(User blog)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public Blog GetUser(int key)
-        {
-            throw new NotImplementedException();
-        }
+        //public int GetKey(User blog)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public Blog GetUser(int key)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public IEnumerable<User> Search(string name)
         {
-            throw new NotImplementedException();
+            return _context.Users.Where(u => u.userName.Contains(name));
         }
 
-        public IEnumerable<User> Search(int ID)
+        public User Search(int ID)
         {
-            throw new NotImplementedException();
+            return _context.Users.First(u => u.ID == ID);
         }
 
         public bool ValidateUser(string userName, string password)
         {
-            throw new NotImplementedException();
+            User existing = _context.Users.First(u => u.userName == userName);
+            if (existing != null)
+            {
+                if(Hash.BValidatePassword(password, existing.passwordHash))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
