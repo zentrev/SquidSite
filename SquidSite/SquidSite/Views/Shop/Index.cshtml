@@ -7,18 +7,20 @@
     List<Product> merch = new List<Product>();
     List<Product> games = new List<Product>();
 
-    foreach(Product pro in Model)
+    if (Model != null)
     {
-        if(pro.ProductType == Product.eProductType.GAME)
+        foreach (Product pro in Model)
         {
-            games.Add(pro);
-        }
-        else
-        {
-            merch.Add(pro);
+            if (pro.ProductType == Product.eProductType.GAME)
+            {
+                games.Add(pro);
+            }
+            else
+            {
+                merch.Add(pro);
+            }
         }
     }
-
 }
 
 <div id="MainShopContainer">

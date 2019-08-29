@@ -13,6 +13,7 @@ namespace SquidSite.Data.Database
         public DbSet<Comment> Comments { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<UserProduct> UserProducts { get; set; }
         public DbSet<ProductImages> ProductImage { get; set; }
 
         public SquidSiteDbContext(DbContextOptions<SquidSiteDbContext> options) : base(options) { }
