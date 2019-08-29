@@ -1,0 +1,33 @@
+﻿html {
+    background-color: black;
+
+    --squidboot-purple: #bb24e5;
+    --squidboot-purple-shade: #9d23be;
+    --squidboot-yellow: #e5d524;
+    --squidboot-yellow-shade: #afa20d;
+    --squidboot-teal: #5cdff9;
+    --squidboot-teal-shade: #3fb5cc;
+    --accent-color-1: #fff;
+    --accent-color-2: #d7d7d7;
+    --main-font-color: #000;
+    --secondary-font-color: #808080;
+    --body-font: 'Quicksand', sans-serif;
+    --header-font: 'Josefin Sans', sans-serif;
+}
+
+.form{
+    border:solid 2px black;
+    max-width: 200px;
+    max-height: 200px;
+    padding: 10px;
+    text-align:center;
+}
+
+body{
+    text-align:center;
+}
+
+.formDiv{
+    display:inline-block;
+}
+
