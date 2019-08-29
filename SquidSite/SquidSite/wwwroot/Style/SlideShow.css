@@ -4,9 +4,7 @@
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 500px;
     position: relative;
-    margin: auto;
 }
 
 /* Hide the images by default */
