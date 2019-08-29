@@ -1,6 +1,5 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    Layout = "_mainLayout";
 }
 
 <!DOCTYPE html>
@@ -8,12 +7,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Style/RegistrationAndLogin.css" rel="stylesheet" />
     <title>Login</title>
 </head>
 <body>
-    <form method="post">
-        <span>UserName:<input type="text" name="userName" placeholder="Username" /></span>
-        <span>Password:<input type="password" name="passWord" placeholder="Password" /></span>
-    </form>
+    <h1>Login</h1>
+    <div class="formDiv">
+        <form class="form" method="post">
+            <span>Username:<input type="text" name="userName" placeholder="Username" /></span> <br />
+            <span>Password:<input type="password" name="passWord" placeholder="Password" /></span>
+
+            <input type="submit" />
+        </form>
+    </div>
 </body>
 </html>

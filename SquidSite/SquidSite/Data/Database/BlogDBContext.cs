@@ -105,7 +105,7 @@ namespace SquidSite.Data.Database
         #region Comment Functions
         public bool AddComment(Comment comment, int blogId, int userId)
         {
-            if (_context.Users.Find(userId) != null && _context.Blogs.Find(blogId) != null)
+            if (_context.Users.First(u=> u.ID == userId) != null && _context.Blogs.First(b=>b.BlogId == blogId) != null)
             {
 
                 comment.CommentUser = _context.Users.First(u => u.ID == userId);

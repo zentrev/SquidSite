@@ -40,7 +40,7 @@
         </div>
         <div class="">
             <form method="post" asp-action="AddComment" asp-controller="Blog">
-                <input type="number" name="BlogId" value="@Model.BlogId" disabled hidden />
+                <input type="number" name="BlogId" value="@Model.BlogId" disabled />
                 <!-- <input type="number" name="UserId" value="1"  disabled hidden/> -->
                 <input class="" type="text" name="CommentText" placeholder="Write Comment here">
                 <input class="" type="submit" value="New Comment" />
