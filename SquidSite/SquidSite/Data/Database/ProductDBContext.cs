@@ -21,6 +21,7 @@ namespace SquidSite.Data.Database
         public bool AddProduct(Product product)
         {
             _context.Products.Add(product);
+            _context.SaveChanges();
             return true;
         }
 
@@ -32,6 +33,8 @@ namespace SquidSite.Data.Database
         public bool DeleteProduct(Product product)
         {
             _context.Products.Remove(product);
+            _context.SaveChanges();
+
             return true;
         }
 
