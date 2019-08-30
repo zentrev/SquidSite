@@ -41,6 +41,7 @@ namespace SquidSite.Data.Database
             _context.Products.Update(change);
             change = product;
             _context.SaveChanges();
+            return true;
         }
 
         public IEnumerable<Product> GetAll()
