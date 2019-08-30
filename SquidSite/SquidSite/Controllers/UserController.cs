@@ -26,18 +26,16 @@ namespace SquidSite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(string username, string password)
+        public IActionResult Register(string username, string password, string email)
         {
             password = Hash.BHashPassword(password);
             User user = new User();
             user.passwordHash = password;
             user.userName = username;
+            user.email = email;
 
-            User existing = userDBContext.GetAll().First(u => u.userName.Equals(username, StringComparison.OrdinalIgnoreCase));
-
-            if(existing == null)
+            if(userDBContext.AddUser(user))
             {
-                userDBContext.AddUser(user);
                 return RedirectToAction("Index", "Home");
             }
 

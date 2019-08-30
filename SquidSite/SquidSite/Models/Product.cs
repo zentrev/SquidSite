@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SquidSite.Models;
 
 namespace SquidSite.Models
 {
@@ -19,7 +20,7 @@ namespace SquidSite.Models
         public string Title { get; set; }
         public float Cost { get; set; }
         public string Description { get; set; }
-        public List<ProdutImage> ImageURLS { get; set; }
+        public List<ProductImages> ImageURLS { get; set; }
 
         #region Game
         public string DownloadLink { get; set; }
